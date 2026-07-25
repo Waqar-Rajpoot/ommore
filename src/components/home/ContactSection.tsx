@@ -1,25 +1,22 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import { Mail, MessageCircle, Globe } from 'lucide-react';
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import GlassCard from '@/components/ui/GlassCard';
 import SectionHeading from '@/components/ui/SectionHeading';
 import ContactForm from '@/components/contact/ContactForm';
 import { buildWhatsAppURL } from '@/lib/constants';
 
+const infoCards = [
+  { icon: Mail, label: 'Email', value: 'ommorecommerce@gmail.com', href: 'mailto:ommorecommerce@gmail.com' },
+  { icon: MessageCircle, label: 'WhatsApp', value: '+92 300 0767291', href: buildWhatsAppURL() },
+  { icon: Globe, label: 'Website', value: 'ommore.com', href: 'https://ommore.com' },
+];
+
 export default function ContactSection() {
-  const t = useTranslations('contactSection');
-
-  const infoCards = [
-    { icon: Mail, label: t('emailLabel'), value: 'ommorecommerce@gmail.com', href: 'mailto:ommorecommerce@gmail.com' },
-    { icon: MessageCircle, label: t('whatsappLabel'), value: '+92 300 0767291', href: buildWhatsAppURL() },
-    { icon: Globe, label: t('websiteLabel'), value: 'ommore.com', href: 'https://ommore.com' },
-  ];
-
   return (
     <section id="contact" className="mx-auto max-w-[1280px] px-20 py-24 max-md:px-5 max-md:py-16">
-      <SectionHeading eyebrow={t('eyebrow')} heading={t('heading')} />
+      <SectionHeading eyebrow="Get In Touch" heading="Get In Touch" />
 
       <div className="mt-12 grid grid-cols-2 gap-10 max-lg:grid-cols-1">
         <GlassCard>
@@ -45,7 +42,7 @@ export default function ContactSection() {
             href="/contact"
             className="block rounded-lg border-[1.5px] border-border-glow px-8 py-3.5 text-center font-display text-base font-semibold text-primary transition-colors hover:bg-primary-muted"
           >
-            {t('bookACall')}
+            Book a Call
           </Link>
         </div>
       </div>

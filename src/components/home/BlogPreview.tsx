@@ -1,16 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import BlogCard from '@/components/blog/BlogCard';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { PLACEHOLDER_POSTS } from '@/lib/placeholder-posts';
 import { fadeUp, staggerContainer } from '@/lib/motion';
 
 export default function BlogPreview() {
-  const t = useTranslations('blogSection');
-
   // Wired to hardcoded PLACEHOLDER_POSTS for now (allowed per Ticket-020).
   // Swap for `GET /api/blog?limit=3` once the backend (Ticket-030) exists.
   if (PLACEHOLDER_POSTS.length === 0) return null;
@@ -18,7 +15,7 @@ export default function BlogPreview() {
   return (
     <section className="bg-surface px-20 py-24 max-md:px-5 max-md:py-16">
       <div className="mx-auto max-w-[1280px]">
-        <SectionHeading eyebrow={t('eyebrow')} heading={t('heading')} />
+        <SectionHeading eyebrow="From the Blog" heading="Latest Articles" />
 
         <motion.div
           variants={staggerContainer()}
@@ -39,7 +36,7 @@ export default function BlogPreview() {
             href="/blog"
             className="rounded-lg border-[1.5px] border-border-glow px-8 py-3.5 font-display text-base font-semibold text-primary transition-colors hover:bg-primary-muted"
           >
-            {t('readAll')}
+            Read All Articles
           </Link>
         </div>
       </div>

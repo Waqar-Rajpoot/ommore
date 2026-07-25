@@ -1,16 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import TestimonialCard from '@/components/testimonials/TestimonialCard';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { PLACEHOLDER_TESTIMONIALS } from '@/lib/placeholder-testimonials';
 import { fadeUp, staggerContainer } from '@/lib/motion';
 
 export default function TestimonialsPreview() {
-  const t = useTranslations('testimonialsSection');
-
   // NOTE: wired to hardcoded PLACEHOLDER_TESTIMONIALS for now (Ticket-018 explicitly
   // allows this fallback). Swap for `GET /api/testimonials?featured=true` once the
   // backend (Ticket-031) exists — the fetch/loading/empty-state logic isn't built yet.
@@ -18,7 +15,7 @@ export default function TestimonialsPreview() {
 
   return (
     <section className="mx-auto max-w-[1280px] px-20 py-24 max-md:px-5 max-md:py-16">
-      <SectionHeading eyebrow={t('eyebrow')} heading={t('heading')} />
+      <SectionHeading eyebrow="Client Reviews" heading="What Our Clients Say" />
 
       <motion.div
         variants={staggerContainer()}
@@ -39,7 +36,7 @@ export default function TestimonialsPreview() {
           href="/testimonials"
           className="rounded-lg border-[1.5px] border-border-glow px-8 py-3.5 font-display text-base font-semibold text-primary transition-colors hover:bg-primary-muted"
         >
-          {t('viewAll')}
+          View All Testimonials
         </Link>
       </div>
     </section>

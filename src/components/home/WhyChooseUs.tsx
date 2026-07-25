@@ -1,26 +1,39 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
 import { Zap, ShieldCheck, Layers, Headset } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { fadeUp, staggerContainer } from '@/lib/motion';
 
+const cards = [
+  {
+    icon: Zap,
+    title: 'Fast Turnaround',
+    desc: 'US LLC formation completed within 48 hours of document submission.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Global Compliance',
+    desc: 'We handle IRS filings, annual reports, and registered agent requirements across US, UK, and Australia.',
+  },
+  {
+    icon: Layers,
+    title: 'Multi-Platform Expertise',
+    desc: 'From Amazon to TikTok Shop, we set up and manage accounts across 7+ marketplaces.',
+  },
+  {
+    icon: Headset,
+    title: 'End-to-End Support',
+    desc: 'From company registration to digital marketing, one team handles your entire business setup.',
+  },
+];
+
 export default function WhyChooseUs() {
-  const t = useTranslations('whyChooseUs');
-
-  const cards = [
-    { icon: Zap, title: t('card1Title'), desc: t('card1Desc') },
-    { icon: ShieldCheck, title: t('card2Title'), desc: t('card2Desc') },
-    { icon: Layers, title: t('card3Title'), desc: t('card3Desc') },
-    { icon: Headset, title: t('card4Title'), desc: t('card4Desc') },
-  ];
-
   return (
     <section className="bg-surface px-20 py-24 max-md:px-5 max-md:py-16">
       <div className="mx-auto max-w-[1280px]">
-        <SectionHeading eyebrow={t('eyebrow')} heading={t('heading')} />
+        <SectionHeading eyebrow="Why Choose Ommore" heading="Why Choose Ommore" />
 
         <motion.div
           variants={staggerContainer()}

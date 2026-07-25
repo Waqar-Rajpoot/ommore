@@ -10,10 +10,7 @@ export const PLACEHOLDER_TESTIMONIALS: Testimonial[] = [
     countryFlag: '🇸🇦',
     service: 'LLC Formation USA',
     rating: 5,
-    quote: {
-      en: '[Sample quote — replace with a real client review before launch.]',
-      ar: '[AR sample — replace with a real client review before launch.]',
-    },
+    quote: '[Sample quote — replace with a real client review before launch.]',
   },
   {
     name: 'Sample Client B',
@@ -21,10 +18,7 @@ export const PLACEHOLDER_TESTIMONIALS: Testimonial[] = [
     countryFlag: '🇦🇪',
     service: 'Marketplace Account',
     rating: 5,
-    quote: {
-      en: '[Sample quote — replace with a real client review before launch.]',
-      ar: '[AR sample — replace with a real client review before launch.]',
-    },
+    quote: '[Sample quote — replace with a real client review before launch.]',
   },
   {
     name: 'Sample Client C',
@@ -32,9 +26,6 @@ export const PLACEHOLDER_TESTIMONIALS: Testimonial[] = [
     countryFlag: '🇵🇰',
     service: 'Digital Marketing',
     rating: 4,
-    quote: {
-      en: '[Sample quote — replace with a real client review before launch.]',
-      ar: '[AR sample — replace with a real client review before launch.]',
-    },
+    quote: '[Sample quote — replace with a real client review before launch.]',
   },
 ];

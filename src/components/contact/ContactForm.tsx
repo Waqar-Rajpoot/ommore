@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useTranslations, useLocale } from 'next-intl';
 import axios from 'axios';
 import { AlertCircle, CheckCircle2, Loader2 } from 'lucide-react';
 import { SERVICE_OPTIONS, buildWhatsAppURL } from '@/lib/constants';
@@ -20,8 +19,6 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
-  const t = useTranslations('contactForm');
-  const locale = useLocale();
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const {
@@ -34,11 +31,7 @@ export default function ContactForm() {
   const onSubmit = async (data: ContactFormValues) => {
     setStatus('idle');
     try {
-      await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/contact`,
-        { ...data, locale },
-        { timeout: 10000 }
-      );
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`, data, { timeout: 10000 });
       setStatus('success');
       reset();
     } catch {
@@ -55,47 +48,47 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
       <div>
         <label className={labelClass}>
-          {t('nameLabel')} <span className="text-error">*</span>
+          Name <span className="text-error">*</span>
         </label>
-        <input {...register('name')} placeholder={t('namePlaceholder')} className={inputClass} />
+        <input {...register('name')} placeholder="Your full name" className={inputClass} />
         {errors.name && (
           <p className={errorClass}>
-            <AlertCircle className="h-4 w-4" /> {t('errorRequired')}
+            <AlertCircle className="h-4 w-4" /> This field is required
           </p>
         )}
       </div>
 
       <div>
         <label className={labelClass}>
-          {t('emailLabel')} <span className="text-error">*</span>
+          Email <span className="text-error">*</span>
         </label>
-        <input {...register('email')} type="email" placeholder={t('emailPlaceholder')} className={inputClass} />
+        <input {...register('email')} type="email" placeholder="you@example.com" className={inputClass} />
         {errors.email && (
           <p className={errorClass}>
-            <AlertCircle className="h-4 w-4" /> {t('errorEmail')}
+            <AlertCircle className="h-4 w-4" /> Please enter a valid email address
           </p>
         )}
       </div>
 
       <div>
         <label className={labelClass}>
-          {t('whatsappLabel')} <span className="text-error">*</span>
+          WhatsApp Number <span className="text-error">*</span>
         </label>
-        <input {...register('whatsapp')} placeholder={t('whatsappPlaceholder')} className={inputClass} />
+        <input {...register('whatsapp')} placeholder="+923001234567" className={inputClass} />
         {errors.whatsapp && (
           <p className={errorClass}>
-            <AlertCircle className="h-4 w-4" /> {t('errorWhatsapp')}
+            <AlertCircle className="h-4 w-4" /> Enter a valid WhatsApp number
           </p>
         )}
       </div>
 
       <div>
         <label className={labelClass}>
-          {t('serviceLabel')} <span className="text-error">*</span>
+          Service Interested In <span className="text-error">*</span>
         </label>
         <select {...register('service')} defaultValue="" className={inputClass}>
           <option value="" disabled>
-            {t('servicePlaceholder')}
+            Select a service
           </option>
           {SERVICE_OPTIONS.map((s) => (
             <option key={s} value={s}>
@@ -105,24 +98,24 @@ export default function ContactForm() {
         </select>
         {errors.service && (
           <p className={errorClass}>
-            <AlertCircle className="h-4 w-4" /> {t('errorRequired')}
+            <AlertCircle className="h-4 w-4" /> This field is required
           </p>
         )}
       </div>
 
       <div>
         <label className={labelClass}>
-          {t('messageLabel')} <span className="text-error">*</span>
+          Message <span className="text-error">*</span>
         </label>
         <textarea
           {...register('message')}
-          placeholder={t('messagePlaceholder')}
+          placeholder="Tell us about what you need..."
           rows={5}
           className={`${inputClass} resize-y`}
         />
         {errors.message && (
           <p className={errorClass}>
-            <AlertCircle className="h-4 w-4" /> {t('errorMessageMin')}
+            <AlertCircle className="h-4 w-4" /> Message must be at least 20 characters
           </p>
         )}
       </div>
@@ -133,14 +126,14 @@ export default function ContactForm() {
         className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-br from-primary to-[#0077AA] px-8 py-3.5 font-display text-base font-semibold text-white shadow-glow-md transition-transform hover:-translate-y-px disabled:opacity-80"
       >
         {isSubmitting && <Loader2 className="h-4 w-4 animate-spin" />}
-        {isSubmitting ? t('submitting') : t('submit')}
+        {isSubmitting ? 'Sending...' : 'Submit'}
       </button>
 
       {status === 'success' && (
         <div className="flex items-center gap-2 rounded-lg border border-success/40 bg-success/15 px-4 py-3 text-sm text-text-primary">
           <CheckCircle2 className="h-5 w-5 text-success" />
           <span>
-            <strong>{t('successTitle')}</strong> — {t('successBody')}
+            <strong>Message received</strong> — We&apos;ll contact you shortly.
           </span>
         </div>
       )}
@@ -149,15 +142,15 @@ export default function ContactForm() {
         <div className="flex items-center justify-between gap-3 rounded-lg border border-error/40 bg-error/15 px-4 py-3 text-sm text-text-primary">
           <span className="flex items-center gap-2">
             <AlertCircle className="h-5 w-5 text-error" />
-            <strong>{t('errorTitle')}</strong>
+            <strong>Something went wrong</strong>
           </span>
           <a
-            href={buildWhatsAppURL("Hi, I tried your contact form but had an issue.")}
+            href={buildWhatsAppURL('Hi, I tried your contact form but had an issue.')}
             target="_blank"
             rel="noopener noreferrer"
             className="whitespace-nowrap font-semibold text-primary underline"
           >
-            {t('errorBody')}
+            Please message us directly on WhatsApp.
           </a>
         </div>
       )}

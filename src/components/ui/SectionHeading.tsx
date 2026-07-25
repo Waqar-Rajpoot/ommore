@@ -8,7 +8,7 @@ export default function SectionHeading({
   align?: 'center' | 'left';
 }) {
   return (
-    <div className={align === 'center' ? 'text-center' : 'text-left rtl:text-right'}>
+    <div className={align === 'center' ? 'text-center' : 'text-left'}>
       <span className="mb-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.08em] text-primary">
         <span className="h-1 w-4 rounded-sm bg-primary" />
         {eyebrow}

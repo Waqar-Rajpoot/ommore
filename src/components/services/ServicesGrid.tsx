@@ -2,9 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import ServiceCard from '@/components/services/ServiceCard';
-import SectionHeading from '@/components/ui/SectionHeading';
 import { SERVICES, type ServiceCategory } from '@/lib/services-data';
 import { fadeUp, staggerContainer } from '@/lib/motion';
 
@@ -15,15 +13,13 @@ const tabs: { key: ServiceCategory | 'All'; label: string }[] = [
   { key: 'Digital Services', label: 'Digital Services' },
 ];
 
-export default function ServicesSection() {
+export default function ServicesGrid() {
   const [active, setActive] = useState<ServiceCategory | 'All'>('All');
 
   const visible = active === 'All' ? SERVICES : SERVICES.filter((s) => s.category === active);
 
   return (
-    <section id="services" className="mx-auto max-w-[1280px] px-20 py-24 max-md:px-5 max-md:py-16">
-      <SectionHeading eyebrow="Our Services" heading="Our Services" />
-
+    <>
       <div className="mt-10 flex flex-wrap justify-center gap-2">
         {tabs.map((tab) => (
           <button
@@ -54,15 +50,6 @@ export default function ServicesSection() {
           </motion.div>
         ))}
       </motion.div>
-
-      <div className="mt-12 text-center">
-        <Link
-          href="/services"
-          className="rounded-lg border-[1.5px] border-border-glow px-8 py-3.5 font-display text-base font-semibold text-primary transition-colors hover:bg-primary-muted"
-        >
-          View All Services
-        </Link>
-      </div>
-    </section>
+    </>
   );
 }

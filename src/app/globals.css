@@ -23,10 +23,9 @@
   --color-error: #FF4D6A;
   --color-warning: #FFB800;
 
-  /* Fonts — variables are set by next/font in src/app/[locale]/layout.tsx */
+  /* Fonts — variables are set by next/font in src/app/layout.tsx */
   --font-sans: var(--font-inter), sans-serif;
   --font-display: var(--font-poppins), sans-serif;
-  --font-arabic: var(--font-noto-arabic), sans-serif;
 
   /* Backdrop blur */
   --blur-glass: 16px;

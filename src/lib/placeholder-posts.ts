@@ -5,14 +5,8 @@ import type { BlogPostSummary } from '@/components/blog/BlogCard';
 export const PLACEHOLDER_POSTS: BlogPostSummary[] = [
   {
     slug: 'how-to-open-us-llc-from-pakistan',
-    title: {
-      en: 'How to Open a US LLC from Pakistan',
-      ar: '[AR: How to Open a US LLC from Pakistan]',
-    },
-    excerpt: {
-      en: 'A step-by-step look at what it actually takes to register a US LLC as a non-resident.',
-      ar: '[AR: A step-by-step look at what it actually takes to register a US LLC as a non-resident.]',
-    },
+    title: 'How to Open a US LLC from Pakistan',
+    excerpt: 'A step-by-step look at what it actually takes to register a US LLC as a non-resident.',
     coverImage: 'https://picsum.photos/seed/ommore-llc/800/450',
     category: 'Business Setup',
     author: 'Ommore Team',
@@ -21,11 +15,8 @@ export const PLACEHOLDER_POSTS: BlogPostSummary[] = [
   },
   {
     slug: 'amazon-seller-account-setup-guide',
-    title: { en: 'Amazon Seller Account Setup: What You Need', ar: '[AR: Amazon Seller Account Setup]' },
-    excerpt: {
-      en: 'The documents, bank setup, and verification steps for a non-resident Amazon seller account.',
-      ar: '[AR: The documents, bank setup, and verification steps for a non-resident Amazon seller account.]',
-    },
+    title: 'Amazon Seller Account Setup: What You Need',
+    excerpt: 'The documents, bank setup, and verification steps for a non-resident Amazon seller account.',
     coverImage: 'https://picsum.photos/seed/ommore-amazon/800/450',
     category: 'E-commerce',
     author: 'Ommore Team',
@@ -34,11 +25,8 @@ export const PLACEHOLDER_POSTS: BlogPostSummary[] = [
   },
   {
     slug: 'digital-marketing-for-new-ecommerce-brands',
-    title: { en: 'Digital Marketing Basics for New Ecommerce Brands', ar: '[AR: Digital Marketing Basics]' },
-    excerpt: {
-      en: 'Where to spend your first marketing budget when you are just getting a store off the ground.',
-      ar: '[AR: Where to spend your first marketing budget when you are just getting a store off the ground.]',
-    },
+    title: 'Digital Marketing Basics for New Ecommerce Brands',
+    excerpt: 'Where to spend your first marketing budget when you are just getting a store off the ground.',
     coverImage: 'https://picsum.photos/seed/ommore-marketing/800/450',
     category: 'Digital Marketing',
     author: 'Ommore Team',

@@ -1,14 +1,13 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import GlassCard from '@/components/ui/GlassCard';
 
 export interface BlogPostSummary {
   slug: string;
-  title: { en: string; ar: string };
-  excerpt: { en: string; ar: string };
+  title: string;
+  excerpt: string;
   coverImage: string;
   category: string;
   author: string;
@@ -17,9 +16,7 @@ export interface BlogPostSummary {
 }
 
 export default function BlogCard({ post }: { post: BlogPostSummary }) {
-  const locale = useLocale() as 'en' | 'ar';
-  const t = useTranslations('blogSection');
-  const formattedDate = new Date(post.publishedAt).toLocaleDateString(locale, {
+  const formattedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
     month: 'long',
     year: 'numeric',
   });
@@ -40,12 +37,12 @@ export default function BlogCard({ post }: { post: BlogPostSummary }) {
             {post.category}
           </span>
           <h3 className="mb-3 line-clamp-2 font-display text-lg font-semibold text-text-primary">
-            {post.title[locale]}
+            {post.title}
           </h3>
-          <p className="mb-5 line-clamp-3 text-sm text-text-secondary">{post.excerpt[locale]}</p>
+          <p className="mb-5 line-clamp-3 text-sm text-text-secondary">{post.excerpt}</p>
           <div className="flex items-center justify-between">
             <span className="text-xs text-text-muted">
-              {post.author} · {t('readTime', { minutes: post.readTime })} · {formattedDate}
+              {post.author} · {post.readTime} min read · {formattedDate}
             </span>
             <ArrowRight className="h-4 w-4 text-primary transition-transform group-hover:-rotate-45" />
           </div>

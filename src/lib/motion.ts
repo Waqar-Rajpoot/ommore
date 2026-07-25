@@ -1,3 +1,4 @@
+"use client"
 import type { Variants } from 'framer-motion';
 
 // Standard scroll reveal (Frontend Spec section 5)

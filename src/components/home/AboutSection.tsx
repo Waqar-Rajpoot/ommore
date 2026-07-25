@@ -1,28 +1,25 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
 import { Building2, ShoppingCart, Megaphone, Landmark } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
 import { fadeUp } from '@/lib/motion';
 
+const stats = [
+  { value: '100+', label: 'Clients' },
+  { value: '4', label: 'Countries' },
+  { value: '20+', label: 'Services' },
+  { value: '48hr', label: 'LLC Formation' },
+];
+
+const highlights = [
+  { icon: Building2, label: 'Company Registration' },
+  { icon: Landmark, label: 'Bank Accounts' },
+  { icon: ShoppingCart, label: 'Marketplace Setup' },
+  { icon: Megaphone, label: 'Digital Marketing' },
+];
+
 export default function AboutSection() {
-  const t = useTranslations('about');
-
-  const stats = [
-    { value: t('statClients'), label: t('statClientsLabel') },
-    { value: t('statCountries'), label: t('statCountriesLabel') },
-    { value: t('statServices'), label: t('statServicesLabel') },
-    { value: t('statLlc'), label: t('statLlcLabel') },
-  ];
-
-  const highlights = [
-    { icon: Building2, label: 'Company Registration' },
-    { icon: Landmark, label: 'Bank Accounts' },
-    { icon: ShoppingCart, label: 'Marketplace Setup' },
-    { icon: Megaphone, label: 'Digital Marketing' },
-  ];
-
   return (
     <section id="about" className="mx-auto max-w-[1280px] px-20 py-24 max-md:px-5 max-md:py-16">
       <div className="grid grid-cols-2 items-center gap-16 max-lg:grid-cols-1 max-lg:gap-10">
@@ -34,13 +31,19 @@ export default function AboutSection() {
         >
           <span className="mb-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.08em] text-primary">
             <span className="h-1 w-4 rounded-sm bg-primary" />
-            {t('eyebrow')}
+            About Ommore
           </span>
           <h2 className="font-display text-5xl font-bold leading-[1.15] text-text-primary max-md:text-3xl">
-            {t('heading')}
+            We Are Your Gateway to Global Markets
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-text-secondary">{t('paragraph1')}</p>
-          <p className="mt-4 text-lg leading-relaxed text-text-secondary">{t('paragraph2')}</p>
+          <p className="mt-6 text-lg leading-relaxed text-text-secondary">
+            Ommore is a Pakistan-based digital solutions company helping entrepreneurs across Asia and the
+            Middle East register companies, open marketplace accounts, and reach global customers.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-text-secondary">
+            From US LLC formation to Amazon seller accounts to full digital marketing support, we handle the
+            paperwork and platforms so you can focus on selling.
+          </p>
 
           <div className="mt-10 grid grid-cols-4 gap-6 max-md:grid-cols-2 max-md:gap-4">
             {stats.map((s) => (

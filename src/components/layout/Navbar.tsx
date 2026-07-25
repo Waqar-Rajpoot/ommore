@@ -1,4 +1,4 @@
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 
 // Stub for Ticket-008 (root layout). Full scroll/blur behavior, mega dropdown,
 // and mobile drawer wiring land in Ticket-009 — not built here on purpose,

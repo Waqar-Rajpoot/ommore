@@ -1,6 +1,5 @@
 'use client';
 
-import { useLocale } from 'next-intl';
 import { Star } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
 
@@ -10,12 +9,11 @@ export interface Testimonial {
   countryFlag: string;
   service: string;
   rating: number;
-  quote: { en: string; ar: string };
+  quote: string;
   avatarUrl?: string | null;
 }
 
 export default function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
-  const locale = useLocale() as 'en' | 'ar';
   const initials = testimonial.name.charAt(0).toUpperCase();
 
   return (
@@ -32,7 +30,7 @@ export default function TestimonialCard({ testimonial }: { testimonial: Testimon
       </div>
 
       <p className="relative mb-6 text-base italic leading-relaxed text-text-primary before:mr-1 before:text-3xl before:text-primary/40 before:content-['\201C']">
-        {testimonial.quote[locale]}
+        {testimonial.quote}
       </p>
 
       <div className="mb-5 border-t border-border-glass" />
