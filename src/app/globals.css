@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/*
+  Ommore design tokens — ported from the PRD's Frontend Specification Document
+  (originally a Tailwind v3 tailwind.config.ts) into Tailwind v4's CSS-native @theme.
+*/
+@theme {
+  /* Colors */
+  --color-primary: #00C8FF;
+  --color-primary-dark: #0099CC;
+  --color-primary-muted: #00C8FF1A;
+  --color-base: #080B14;
+  --color-surface: #0D1221;
+  --color-surface-raised: #141A2E;
+  --color-glass: #FFFFFF0D;
+  --color-glass-strong: #FFFFFF1A;
+  --color-border-glass: #FFFFFF14;
+  --color-border-glow: #00C8FF40;
+  --color-text-primary: #F0F4FF;
+  --color-text-secondary: #8B9CC8;
+  --color-text-muted: #4A5578;
+  --color-success: #00D68F;
+  --color-error: #FF4D6A;
+  --color-warning: #FFB800;
+
+  /* Fonts — variables are set by next/font in src/app/[locale]/layout.tsx */
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-poppins), sans-serif;
+  --font-arabic: var(--font-noto-arabic), sans-serif;
+
+  /* Backdrop blur */
+  --blur-glass: 16px;
+  --blur-nav: 20px;
+
+  /* Shadows */
+  --shadow-glass: 0 8px 32px #00000040, 0 2px 8px #00000060;
+  --shadow-glow-sm: 0 0 12px #00C8FF20, 0 0 24px #00C8FF10;
+  --shadow-glow-md: 0 0 20px #00C8FF30, 0 0 40px #00C8FF15;
+  --shadow-glow-lg: 0 0 40px #00C8FF40, 0 0 80px #00C8FF20;
+
+  /* Animations */
+  --animate-whatsapp-pulse: whatsapp-pulse 2.5s infinite;
+  --animate-shimmer: shimmer 0.6s ease forwards;
+  --animate-fade-in: fadeIn 0.4s ease forwards;
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 #25D36660; }
+  70% { box-shadow: 0 0 0 16px #25D36600; }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* backdrop-filter fallback — required per Frontend Spec Risk 1 (low-end Android) */
+@supports not (backdrop-filter: blur(1px)) {
+  .glass-card {
+    background: var(--color-surface-raised);
+    border: 1px solid #1E2A4A;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--color-base);
+  color: var(--color-text-primary);
+}

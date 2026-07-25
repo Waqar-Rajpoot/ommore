@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "home": "[AR: Home]",
+    "services": "[AR: Services]",
+    "blog": "[AR: Blog]",
+    "testimonials": "[AR: Testimonials]",
+    "contact": "[AR: Contact]",
+    "whatsappCta": "[AR: WhatsApp Us]",
+    "openMenu": "[AR: Open menu]",
+    "closeMenu": "[AR: Close menu]"
+  },
+  "footer": {
+    "tagline": "[AR: Your Gateway to Global Markets]",
+    "description": "[AR: Ommore helps international entrepreneurs register companies, open marketplace accounts, and grow their business online.]",
+    "quickLinks": "[AR: Quick Links]",
+    "servicesHeading": "[AR: Services]",
+    "contactHeading": "[AR: Contact]",
+    "copyright": "[AR: © {year} Ommore. All rights reserved.]"
+  },
+  "whatsapp": {
+    "ariaLabel": "[AR: Chat with us on WhatsApp]",
+    "defaultMessage": "[AR: Hi Ommore, I'd like to learn more about your services.]"
+  },
+  "hero": {
+    "eyebrow": "[AR: Digital Solutions]",
+    "headline": "[AR: Your Gateway to Global Markets]",
+    "subheadline": "[AR: US LLC formation, marketplace account setup, and digital marketing for entrepreneurs building an international business.]",
+    "getStarted": "[AR: Get Started]",
+    "exploreServices": "[AR: Explore Services]",
+    "badgeClients": "[AR: 100+ Clients Served]",
+    "badgeLlc": "[AR: US LLC in 48hrs]",
+    "badgeRating": "[AR: 5★ Rated]",
+    "badgeReach": "[AR: Global Reach]"
+  },
+  "about": {
+    "eyebrow": "[AR: About Ommore]",
+    "heading": "[AR: We Are Your Gateway to Global Markets]",
+    "paragraph1": "[AR: Ommore is a Pakistan-based digital solutions company helping entrepreneurs across Asia and the Middle East register companies, open marketplace accounts, and reach global customers.]",
+    "paragraph2": "[AR: From US LLC formation to Amazon seller accounts to full digital marketing support, we handle the paperwork and platforms so you can focus on selling.]",
+    "statClients": "[AR: 100+]",
+    "statClientsLabel": "[AR: Clients]",
+    "statCountries": "[AR: 4]",
+    "statCountriesLabel": "[AR: Countries]",
+    "statServices": "[AR: 20+]",
+    "statServicesLabel": "[AR: Services]",
+    "statLlc": "[AR: 48hr]",
+    "statLlcLabel": "[AR: LLC Formation]"
+  },
+  "whyChooseUs": {
+    "eyebrow": "[AR: Why Choose Ommore]",
+    "heading": "[AR: Why Choose Ommore]",
+    "card1Title": "[AR: Fast Turnaround]",
+    "card1Desc": "[AR: US LLC formation completed within 48 hours of document submission.]",
+    "card2Title": "[AR: Global Compliance]",
+    "card2Desc": "[AR: We handle IRS filings, annual reports, and registered agent requirements across US, UK, and Australia.]",
+    "card3Title": "[AR: Multi-Platform Expertise]",
+    "card3Desc": "[AR: From Amazon to TikTok Shop, we set up and manage accounts across 7+ marketplaces.]",
+    "card4Title": "[AR: End-to-End Support]",
+    "card4Desc": "[AR: From company registration to digital marketing, one team handles your entire business setup.]"
+  },
+  "servicesSection": {
+    "eyebrow": "[AR: Our Services]",
+    "heading": "[AR: Our Services]",
+    "tabAll": "[AR: All]",
+    "tabBusiness": "[AR: Business Setup]",
+    "tabMarketplace": "[AR: Marketplace Accounts]",
+    "tabDigital": "[AR: Digital Services]",
+    "learnMore": "[AR: Learn More]",
+    "viewAll": "[AR: View All Services]"
+  },
+  "testimonialsSection": {
+    "eyebrow": "[AR: Client Reviews]",
+    "heading": "[AR: What Our Clients Say]",
+    "viewAll": "[AR: View All Testimonials]"
+  },
+  "blogSection": {
+    "eyebrow": "[AR: From the Blog]",
+    "heading": "[AR: Latest Articles]",
+    "readAll": "[AR: Read All Articles]",
+    "readTime": "[AR: {minutes} min read]"
+  },
+  "contactSection": {
+    "eyebrow": "[AR: Get In Touch]",
+    "heading": "[AR: Get In Touch]",
+    "emailLabel": "[AR: Email]",
+    "whatsappLabel": "[AR: WhatsApp]",
+    "websiteLabel": "[AR: Website]",
+    "bookACall": "[AR: Book a Call]"
+  },
+  "contactForm": {
+    "nameLabel": "[AR: Name]",
+    "namePlaceholder": "[AR: Your full name]",
+    "emailLabel": "[AR: Email]",
+    "emailPlaceholder": "[AR: you@example.com]",
+    "whatsappLabel": "[AR: WhatsApp Number]",
+    "whatsappPlaceholder": "[AR: +923001234567]",
+    "serviceLabel": "[AR: Service Interested In]",
+    "servicePlaceholder": "[AR: Select a service]",
+    "messageLabel": "[AR: Message]",
+    "messagePlaceholder": "[AR: Tell us about what you need...]",
+    "submit": "[AR: Submit]",
+    "submitting": "[AR: Sending...]",
+    "successTitle": "[AR: Message received]",
+    "successBody": "[AR: We'll contact you shortly.]",
+    "errorTitle": "[AR: Something went wrong]",
+    "errorBody": "[AR: Please message us directly on WhatsApp.]",
+    "errorRequired": "[AR: This field is required]",
+    "errorEmail": "[AR: Please enter a valid email address]",
+    "errorMessageMin": "[AR: Message must be at least 20 characters]",
+    "errorWhatsapp": "[AR: Enter a valid WhatsApp number]"
+  }
+}

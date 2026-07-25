@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "blog": "Blog",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "whatsappCta": "WhatsApp Us",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "footer": {
+    "tagline": "Your Gateway to Global Markets",
+    "description": "Ommore helps international entrepreneurs register companies, open marketplace accounts, and grow their business online.",
+    "quickLinks": "Quick Links",
+    "servicesHeading": "Services",
+    "contactHeading": "Contact",
+    "copyright": "© {year} Ommore. All rights reserved."
+  },
+  "whatsapp": {
+    "ariaLabel": "Chat with us on WhatsApp",
+    "defaultMessage": "Hi Ommore, I'd like to learn more about your services."
+  },
+  "hero": {
+    "eyebrow": "Digital Solutions",
+    "headline": "Your Gateway to Global Markets",
+    "subheadline": "US LLC formation, marketplace account setup, and digital marketing for entrepreneurs building an international business.",
+    "getStarted": "Get Started",
+    "exploreServices": "Explore Services",
+    "badgeClients": "100+ Clients Served",
+    "badgeLlc": "US LLC in 48hrs",
+    "badgeRating": "5★ Rated",
+    "badgeReach": "Global Reach"
+  },
+  "about": {
+    "eyebrow": "About Ommore",
+    "heading": "We Are Your Gateway to Global Markets",
+    "paragraph1": "Ommore is a Pakistan-based digital solutions company helping entrepreneurs across Asia and the Middle East register companies, open marketplace accounts, and reach global customers.",
+    "paragraph2": "From US LLC formation to Amazon seller accounts to full digital marketing support, we handle the paperwork and platforms so you can focus on selling.",
+    "statClients": "100+",
+    "statClientsLabel": "Clients",
+    "statCountries": "4",
+    "statCountriesLabel": "Countries",
+    "statServices": "20+",
+    "statServicesLabel": "Services",
+    "statLlc": "48hr",
+    "statLlcLabel": "LLC Formation"
+  },
+  "whyChooseUs": {
+    "eyebrow": "Why Choose Ommore",
+    "heading": "Why Choose Ommore",
+    "card1Title": "Fast Turnaround",
+    "card1Desc": "US LLC formation completed within 48 hours of document submission.",
+    "card2Title": "Global Compliance",
+    "card2Desc": "We handle IRS filings, annual reports, and registered agent requirements across US, UK, and Australia.",
+    "card3Title": "Multi-Platform Expertise",
+    "card3Desc": "From Amazon to TikTok Shop, we set up and manage accounts across 7+ marketplaces.",
+    "card4Title": "End-to-End Support",
+    "card4Desc": "From company registration to digital marketing, one team handles your entire business setup."
+  },
+  "servicesSection": {
+    "eyebrow": "Our Services",
+    "heading": "Our Services",
+    "tabAll": "All",
+    "tabBusiness": "Business Setup",
+    "tabMarketplace": "Marketplace Accounts",
+    "tabDigital": "Digital Services",
+    "learnMore": "Learn More",
+    "viewAll": "View All Services"
+  },
+  "testimonialsSection": {
+    "eyebrow": "Client Reviews",
+    "heading": "What Our Clients Say",
+    "viewAll": "View All Testimonials"
+  },
+  "blogSection": {
+    "eyebrow": "From the Blog",
+    "heading": "Latest Articles",
+    "readAll": "Read All Articles",
+    "readTime": "{minutes} min read"
+  },
+  "contactSection": {
+    "eyebrow": "Get In Touch",
+    "heading": "Get In Touch",
+    "emailLabel": "Email",
+    "whatsappLabel": "WhatsApp",
+    "websiteLabel": "Website",
+    "bookACall": "Book a Call"
+  },
+  "contactForm": {
+    "nameLabel": "Name",
+    "namePlaceholder": "Your full name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "whatsappLabel": "WhatsApp Number",
+    "whatsappPlaceholder": "+923001234567",
+    "serviceLabel": "Service Interested In",
+    "servicePlaceholder": "Select a service",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Tell us about what you need...",
+    "submit": "Submit",
+    "submitting": "Sending...",
+    "successTitle": "Message received",
+    "successBody": "We'll contact you shortly.",
+    "errorTitle": "Something went wrong",
+    "errorBody": "Please message us directly on WhatsApp.",
+    "errorRequired": "This field is required",
+    "errorEmail": "Please enter a valid email address",
+    "errorMessageMin": "Message must be at least 20 characters",
+    "errorWhatsapp": "Enter a valid WhatsApp number"
+  }
+}
