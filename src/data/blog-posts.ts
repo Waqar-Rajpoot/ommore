@@ -103,6 +103,7 @@ export const blogPosts: BlogPost[] = [
     coverImage: "https://picsum.photos/seed/server-components-explained/1600/900",
     date: "2026-05-02",
     readTime: "9 min read",
+    featured: true,
     author: authors.daniyal,
     content: [
       {
@@ -144,6 +145,7 @@ export const blogPosts: BlogPost[] = [
     coverImage: "https://picsum.photos/seed/real-cost-of-slow-websites/1600/900",
     date: "2026-04-14",
     readTime: "6 min read",
+    featured: true,
     author: authors.daniyal,
     content: [
       {

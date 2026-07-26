@@ -35,7 +35,7 @@ import WhyChooseUs from '@/components/home/WhyChooseUs';
 import TestimonialsPreview from '@/components/home/TestimonialsPreview';
 import BlogPreview from '@/components/home/BlogPreview';
 import ContactSection from '@/components/home/ContactSection';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/layout/Navbar';
 
 export default function HomePage() {
   return (
