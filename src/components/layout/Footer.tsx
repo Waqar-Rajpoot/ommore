@@ -22,9 +22,9 @@ const SOCIALS = [
   { label: "Twitter", href: "https://twitter.com/ommore", icon: TwitterIcon },
 ];
 
-const ADDRESS = "Farid Town Road, College Chowk, Sahiwal, 57000, Pakistan";
+const ADDRESS = "M3GR+5HR, Farid Town, Sahiwal, Pakistan";
 const MAPS_SEARCH_URL =
-  "https://www.google.com/maps/search/?api=1&query=Eraviya+Solutions+Sahiwal";
+  "https://www.google.com/maps/search/?api=1&query=M3GR%2B5HR+Farid+Town+Sahiwal+Pakistan";
 const MAPS_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(
   ADDRESS
 )}&output=embed`;
