@@ -17,7 +17,7 @@ export function VerifiedRow({
       {testimonial.verified && (
         <span
           title={testimonial.verifiedNote}
-          className={`inline-flex items-center gap-1.5 rounded-full border border-[#4FD1C5]/30 bg-[#4FD1C5]/10 ${pad} font-medium text-[#4FD1C5]`}
+          className={`inline-flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 ${pad} font-medium text-success`}
         >
           <CheckBadgeIcon className="h-3.5 w-3.5" />
           Verified
@@ -28,7 +28,7 @@ export function VerifiedRow({
         href={testimonial.platform.url}
         target="_blank"
         rel="noopener noreferrer nofollow"
-        className={`inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 ${pad} font-medium text-[#C4C9D4] transition-colors hover:border-white/25 hover:text-white`}
+        className={`inline-flex items-center gap-1.5 rounded-full border border-border-glass bg-glass ${pad} font-medium text-text-secondary transition-colors hover:border-border-glow hover:text-text-primary`}
       >
         {testimonial.platform.name}
         <ExternalLinkIcon className="h-3.5 w-3.5" />
@@ -39,7 +39,7 @@ export function VerifiedRow({
           href={testimonial.linkedinUrl}
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className={`inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 ${pad} font-medium text-[#C4C9D4] transition-colors hover:border-white/25 hover:text-white`}
+          className={`inline-flex items-center gap-1.5 rounded-full border border-border-glass bg-glass ${pad} font-medium text-text-secondary transition-colors hover:border-border-glow hover:text-text-primary`}
         >
           <LinkedInIcon className="h-3.5 w-3.5" />
           LinkedIn

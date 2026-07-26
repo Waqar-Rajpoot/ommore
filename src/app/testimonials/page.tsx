@@ -20,46 +20,38 @@ export default function TestimonialsPage() {
   const verifiedCount = testimonials.filter((t) => t.verified).length;
 
   return (
-    <div className="min-h-screen bg-[#0A0B0F] text-white">
-      <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
-        {/* Page header */}
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#7C6FF0]">
-            
-        <SectionHeading eyebrow="Client Testimonials" heading="What Our Clients Say, and how you can check it" />
+    <section className="mx-auto max-w-[1280px] px-20 py-24 max-md:px-5 max-md:py-16">
+      <SectionHeading
+        eyebrow="Client Testimonials"
+        heading="What Our Clients Say, and How You Can Check It"
+      />
+      <p className="mx-auto mt-4 max-w-2xl text-center text-text-secondary">
+        Every review here links back to where it actually lives — Clutch, Google, Upwork, or
+        LinkedIn — so you&rsquo;re never taking our word for it alone.
+      </p>
+
+      <div className="mx-auto mt-10 flex max-w-xl flex-wrap items-center justify-center gap-x-10 gap-y-4 rounded-2xl border border-border-glass bg-glass px-8 py-6 shadow-glass backdrop-blur-glass backdrop-saturate-[180%]">
+        <div className="flex flex-col items-center gap-1.5">
+          <StarRating rating={avgRating} size="md" />
+          <span className="text-xs text-text-muted">
+            {avgRating.toFixed(1)} average rating
           </span>
-          <p className="mt-4 leading-relaxed text-[#9BA1AF] sm:text-lg">
-            Every review here links back to where it actually lives —
-            Clutch, Google, Upwork, or LinkedIn — so you&lsquo;re never taking
-            our word for it alone.
-          </p>
         </div>
-
-        {/* Aggregate trust stats */}
-        <div className="mx-auto mt-10 flex max-w-xl flex-wrap items-center justify-center gap-x-10 gap-y-4 rounded-2xl border border-white/10 px-8 py-6 bg-glass shadow-glass backdrop-blur-glass backdrop-saturate-180">
-          <div className="flex flex-col items-center gap-1.5">
-            <StarRating rating={avgRating} size="md" />
-            <span className="text-xs text-[#6B7280]">
-              {avgRating.toFixed(1)} average rating
-            </span>
-          </div>
-          <div className="h-8 w-px bg-white/10" />
-          <div className="flex flex-col items-center">
-            <span className="text-xl font-bold text-white">{testimonials.length}</span>
-            <span className="text-xs text-[#6B7280]">client reviews</span>
-          </div>
-          <div className="h-8 w-px bg-white/10" />
-          <div className="flex flex-col items-center">
-            <span className="text-xl font-bold text-[#4FD1C5]">{verifiedCount}</span>
-            <span className="text-xs text-[#6B7280]">independently verified</span>
-          </div>
+        <div className="h-8 w-px bg-border-glass" />
+        <div className="flex flex-col items-center">
+          <span className="font-display text-xl font-bold text-text-primary">{testimonials.length}</span>
+          <span className="text-xs text-text-muted">client reviews</span>
         </div>
-
-        {/* Filterable grid */}
-        <div className="mt-16">
-          <TestimonialsGrid testimonials={testimonials} categories={categories} />
+        <div className="h-8 w-px bg-border-glass" />
+        <div className="flex flex-col items-center">
+          <span className="font-display text-xl font-bold text-success">{verifiedCount}</span>
+          <span className="text-xs text-text-muted">independently verified</span>
         </div>
       </div>
-    </div>
+
+      <div className="mt-16">
+        <TestimonialsGrid testimonials={testimonials} categories={categories} />
+      </div>
+    </section>
   );
 }

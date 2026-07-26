@@ -9,7 +9,7 @@ export function StarRating({ rating, size = "sm" }: { rating: number; size?: "sm
         <StarIcon
           key={i}
           filled={i < Math.round(rating)}
-          className={`${dims} ${i < Math.round(rating) ? "text-[#FFB020]" : "text-white/15"}`}
+          className={`${dims} ${i < Math.round(rating) ? "text-warning" : "text-text-muted"}`}
         />
       ))}
     </div>

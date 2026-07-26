@@ -35,6 +35,7 @@ import WhyChooseUs from '@/components/home/WhyChooseUs';
 import TestimonialsPreview from '@/components/home/TestimonialsPreview';
 import BlogPreview from '@/components/home/BlogPreview';
 import ContactSection from '@/components/home/ContactSection';
+import Navbar from '@/components/Navbar';
 
 export default function HomePage() {
   return (
@@ -45,7 +46,7 @@ export default function HomePage() {
       <WhyChooseUs />
       <TestimonialsPreview />
       <BlogPreview />
-      <ContactSection />
     </>
   );
 }
+
