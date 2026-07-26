@@ -1,4 +1,4 @@
-import type { BlogPostSummary } from '@/components/blog/BlogCard';
+import type { BlogPostSummary } from '@/components/blog/blog-card';
 
 // SAMPLE DATA — placeholder posts until the backend (Ticket-030) and real
 // content (min. per PRD open question #5) exist.

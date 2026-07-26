@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ServiceCard from '@/components/services/ServiceCard';
-import { SERVICES, type ServiceCategory } from '@/lib/services-data';
+import { SERVICES, type ServiceCategory } from '@/data/services-data';
 import { fadeUp, staggerContainer } from '@/lib/motion';
 
 const tabs: { key: ServiceCategory | 'All'; label: string }[] = [

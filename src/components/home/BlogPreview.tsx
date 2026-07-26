@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import BlogCard from '@/components/blog/BlogCard';
+import { BlogCard } from '@/components/blog/blog-card';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { PLACEHOLDER_POSTS } from '@/lib/placeholder-posts';
 import { fadeUp, staggerContainer } from '@/lib/motion';

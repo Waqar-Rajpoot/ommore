@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { CheckCircle2, ArrowLeft } from 'lucide-react';
-import { SERVICES } from '@/lib/services-data';
+import { SERVICES } from '@/data/services-data';
 import ServiceCard from '@/components/services/ServiceCard';
 import GlassCard from '@/components/ui/GlassCard'; 
 

@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
       // Blog cover images / testimonial avatars are external URLs
       // (Cloudinary or similar) per the Technical Architecture Document.
       { protocol: "https", hostname: "**" },
+      { hostname: "picsum.photos" },
+      { hostname: "i.pravatar.cc" },
     ],
   },
 };
