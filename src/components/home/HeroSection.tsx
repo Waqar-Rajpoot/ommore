@@ -1,7 +1,7 @@
 'use client';
 import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
-import { Users, Clock, Star, Globe } from 'lucide-react';
+import { Users, Layers, Star, Globe } from 'lucide-react';
 import { fadeUp, staggerContainer } from '@/lib/motion';
 
 const PARTICLES = Array.from({ length: 40 }, (_, i) => ({
@@ -18,7 +18,7 @@ export default function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
   const badges = [
     { icon: Users, label: '100+ Clients Served' },
-    { icon: Clock, label: 'US LLC in 48hrs' },
+    { icon: Layers, label: '14 Services, One Team' },
     { icon: Star, label: '5★ Rated' },
     { icon: Globe, label: 'Global Reach' },
   ];
@@ -68,27 +68,27 @@ export default function HeroSection() {
           variants={fadeUp}
           className="font-display text-6xl font-bold leading-[1.1] tracking-[-0.02em] text-text-primary max-md:text-4xl"
         >
-          Your Gateway to Global Markets
+          One Team for Business Setup, Technology, and Marketing
         </motion.h1>
 
         <motion.p variants={fadeUp} className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-text-secondary">
-          US LLC formation, marketplace account setup, and digital marketing for entrepreneurs building an
-          international business.
+          Company formation and compliance, product and web development, and the marketing that
+          drives traffic to it handled by one team instead of three vendors.
         </motion.p>
 
         <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
-            href="#contact"
+            href="/contact"
             className="rounded-lg bg-gradient-to-br from-primary to-[#0077AA] px-8 py-3.5 font-display text-base font-semibold text-white shadow-glow-md transition-transform hover:-translate-y-px"
           >
             Get Started
           </Link>
-          <a
-            href="#services"
+          <Link
+            href="/services"
             className="rounded-lg border-[1.5px] border-border-glow px-8 py-3.5 font-display text-base font-semibold text-primary transition-colors hover:bg-primary-muted"
           >
             Explore Services
-          </a>
+          </Link>
         </motion.div>
 
         <motion.div

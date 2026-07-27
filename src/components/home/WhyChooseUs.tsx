@@ -1,57 +1,29 @@
-'use client';
-
-import { motion } from 'framer-motion';
-import { Zap, ShieldCheck, Layers, Headset } from 'lucide-react';
-import GlassCard from '@/components/ui/GlassCard';
 import SectionHeading from '@/components/ui/SectionHeading';
-import { fadeUp, staggerContainer } from '@/lib/motion';
-
-const cards = [
-  {
-    icon: Zap,
-    title: 'Fast Turnaround',
-    desc: 'US LLC formation completed within 48 hours of document submission.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Global Compliance',
-    desc: 'We handle IRS filings, annual reports, and registered agent requirements across US, UK, and Australia.',
-  },
-  {
-    icon: Layers,
-    title: 'Multi-Platform Expertise',
-    desc: 'From Amazon to TikTok Shop, we set up and manage accounts across 7+ marketplaces.',
-  },
-  {
-    icon: Headset,
-    title: 'End-to-End Support',
-    desc: 'From company registration to digital marketing, one team handles your entire business setup.',
-  },
-];
+import { REASONS } from '@/data/why-chose-us';
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-surface px-20 py-24 max-md:px-5 max-md:py-16">
-      <div className="mx-auto max-w-[1280px]">
-        <SectionHeading eyebrow="Why Choose Ommore" heading="Why Choose Ommore" />
+    <section className="mx-auto max-w-[1280px] px-20 py-12 max-md:px-5 max-md:py-8">
+      <SectionHeading
+        eyebrow="Why Ommore"
+        heading="Why Founders Choose Us"
+      />
 
-        <motion.div
-          variants={staggerContainer()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-80px' }}
-          className="mt-12 grid grid-cols-4 gap-5 max-lg:grid-cols-2 max-md:grid-cols-1"
-        >
-          {cards.map(({ icon: Icon, title, desc }) => (
-            <motion.div key={title} variants={fadeUp}>
-              <GlassCard>
-                <Icon className="mb-4 h-10 w-10 text-primary" />
-                <h3 className="mb-2 font-display text-lg font-semibold text-text-primary">{title}</h3>
-                <p className="text-sm leading-relaxed text-text-secondary">{desc}</p>
-              </GlassCard>
-            </motion.div>
-          ))}
-        </motion.div>
+      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        {REASONS.map(({ icon: Icon, title, description }) => (
+          <div
+            key={title}
+            className="flex gap-4 rounded-2xl border border-border-glass bg-glass p-6 shadow-glass backdrop-blur-glass backdrop-saturate-[180%]"
+          >
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-muted text-primary">
+              <Icon className="h-5 w-5" />
+            </div>
+            <div>
+              <h3 className="font-display text-lg font-semibold text-text-primary">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-text-secondary">{description}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

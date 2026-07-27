@@ -131,7 +131,7 @@ export const SERVICES: ServiceSummary[] = [
     category: 'Technology',
     icon: 'ShoppingBag',
     title: 'Shopify',
-    featured: true,
+    featured: false,
     description: 'Shopify store setup, theme customization, and app integrations.',
     longDescription:
       'We set up and customize Shopify stores that are ready to sell from day one — theme, product catalog, checkout, and the apps that support your workflow.',

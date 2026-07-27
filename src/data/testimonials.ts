@@ -60,7 +60,7 @@ export const testimonials: Testimonial[] = [
     clientName: "Michael Osei",
     role: "CTO",
     company: "Kestrel Finance",
-    featured: true,
+    featured: false,
     avatar: "https://i.pravatar.cc/150?img=15",
     category: "Web Development",
     rating: 5,

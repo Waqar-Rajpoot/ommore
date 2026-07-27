@@ -32,7 +32,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.variable} ${inter.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-base text-text-primary antialiased font-sans">
-        {/* <Navbar /> */}
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

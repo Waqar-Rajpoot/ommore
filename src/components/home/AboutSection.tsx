@@ -1,5 +1,4 @@
 'use client';
-
 import { motion } from 'framer-motion';
 import { Building2, ShoppingCart, Megaphone, Landmark } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';

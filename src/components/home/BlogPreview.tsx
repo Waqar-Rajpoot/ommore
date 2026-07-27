@@ -1,44 +1,38 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { BlogCard } from '@/components/blog/blog-card';
 import SectionHeading from '@/components/ui/SectionHeading';
-import { PLACEHOLDER_POSTS } from '@/lib/placeholder-posts';
-import { fadeUp, staggerContainer } from '@/lib/motion';
+import { BlogCard } from '@/components/blog/blog-card';
+import { getFeaturedPosts } from '@/data/blog-posts';
+
+const HOME_FEATURED_LIMIT = 3;
 
 export default function BlogPreview() {
-  // Wired to hardcoded PLACEHOLDER_POSTS for now (allowed per Ticket-020).
-  // Swap for `GET /api/blog?limit=3` once the backend (Ticket-030) exists.
-  if (PLACEHOLDER_POSTS.length === 0) return null;
+  const featured = getFeaturedPosts(HOME_FEATURED_LIMIT);
+
+  if (featured.length === 0) return null;
 
   return (
-    <section className="bg-surface px-20 py-24 max-md:px-5 max-md:py-16">
-      <div className="mx-auto max-w-[1280px]">
-        <SectionHeading eyebrow="From the Blog" heading="Latest Articles" />
+    <section className="mx-auto max-w-[1280px] px-20 py-12 max-md:px-5 max-md:py-8">
+      <SectionHeading
+        eyebrow="From the Journal"
+        heading="Notes on Business, Technology, and Marketing"
+      />
+      <p className="mx-auto mt-4 max-w-2xl text-center text-text-secondary">
+        Practical write-ups from the actual work we do for clients — not generic advice.
+      </p>
 
-        <motion.div
-          variants={staggerContainer()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-80px' }}
-          className="mt-12 grid grid-cols-3 gap-6 max-md:grid-cols-1"
+      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {featured.map((post) => (
+          <BlogCard key={post.slug} post={post} />
+        ))}
+      </div>
+
+      <div className="mt-10 flex justify-center">
+        <Link
+          href="/blog"
+          className="rounded-full border border-border-glass bg-glass px-6 py-2.5 text-sm font-medium text-text-primary backdrop-blur-glass transition-colors hover:border-primary/50 hover:text-primary"
         >
-          {PLACEHOLDER_POSTS.slice(0, 3).map((post) => (
-            <motion.div key={post.slug} variants={fadeUp} className="group">
-              <BlogCard post={post} />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <div className="mt-12 text-center">
-          <Link
-            href="/blog"
-            className="rounded-lg border-[1.5px] border-border-glow px-8 py-3.5 font-display text-base font-semibold text-primary transition-colors hover:bg-primary-muted"
-          >
-            Read All Articles
-          </Link>
-        </div>
+          Read More Articles
+        </Link>
       </div>
     </section>
   );

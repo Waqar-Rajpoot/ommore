@@ -9,20 +9,39 @@ export function buildWhatsAppURL(
 
 // Service enum — must stay in sync with backend/src/models/Lead.ts `service` field
 // and the Contact Form's dropdown options (Technical Architecture Document, section 3).
+// export const SERVICE_OPTIONS = [
+//   'LLC Formation USA',
+//   'LTD Registration UK',
+//   'Company Registration Australia',
+//   'Tax Filing',
+//   'Bank Account Registration',
+//   'Marketplace Account',
+//   'Digital Marketing',
+//   'Graphic Designing',
+//   'Video Editing',
+//   'Website Development',
+//   'App Development',
+//   'Ecommerce Management',
+//   'Other',
+// ] as const;
+
 export const SERVICE_OPTIONS = [
-  'LLC Formation USA',
-  'LTD Registration UK',
-  'Company Registration Australia',
-  'Tax Filing',
-  'Bank Account Registration',
-  'Marketplace Account',
-  'Digital Marketing',
-  'Graphic Designing',
-  'Video Editing',
-  'Website Development',
-  'App Development',
-  'Ecommerce Management',
+  'UK Company',
+  'US LLC',
+  'Tax',
+  'Banking',
+  'Web Development',
+  'WordPress',
+  'Shopify',
+  'Programming',
+  'SaaS',
+  'SEO',
+  'Google Ads',
+  'Pinterest',
+  'YouTube',
+  'Branding',
   'Other',
 ] as const;
+
 
 export type ServiceOption = (typeof SERVICE_OPTIONS)[number];

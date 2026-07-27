@@ -1,64 +1,34 @@
-'use client';
-
-import { useState } from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
-import ServiceCard from '@/components/services/ServiceCard';
 import SectionHeading from '@/components/ui/SectionHeading';
-import { SERVICES, type ServiceCategory } from '@/data/services-data';
-import { fadeUp, staggerContainer } from '@/lib/motion';
+import ServiceCard from '@/components/services/ServiceCard';
+import { SERVICES } from '@/data/services-data';
 
-const tabs: { key: ServiceCategory | 'All'; label: string }[] = [
-  { key: 'All', label: 'All' },
-  { key: 'Business Setup', label: 'Business Setup' },
-  { key: 'Marketplace Accounts', label: 'Marketplace Accounts' },
-  { key: 'Digital Services', label: 'Digital Services' },
-];
+const HOME_FEATURED_LIMIT = 4;
 
 export default function ServicesSection() {
-  const [active, setActive] = useState<ServiceCategory | 'All'>('All');
-
-  const visible = active === 'All' ? SERVICES : SERVICES.filter((s) => s.category === active);
+  const featured = SERVICES.filter((s) => s.featured).slice(0, HOME_FEATURED_LIMIT);
 
   return (
-    <section id="services" className="mx-auto max-w-[1280px] px-20 py-24 max-md:px-5 max-md:py-16">
-      <SectionHeading eyebrow="Our Services" heading="Our Services" />
+    <section className="mx-auto max-w-[1280px] px-20 py-12 max-md:px-5 max-md:py-8">
+      <SectionHeading
+        eyebrow="What We Do"
+        heading="Business, Technology, and Marketing"
+      />
+      <p className="mx-auto mt-4 max-w-2xl text-center text-text-secondary">
+        From registering your company to building the product and driving the traffic that
+        grows it — a few of the services clients come to us for most.
+      </p>
 
-      <div className="mt-10 flex flex-wrap justify-center gap-2">
-        {tabs.map((tab) => (
-          <button
-            key={tab.key}
-            onClick={() => setActive(tab.key)}
-            className={`rounded-full px-5 py-2 text-sm font-medium transition-colors ${
-              active === tab.key
-                ? 'bg-primary-muted text-primary'
-                : 'text-text-secondary hover:text-text-primary'
-            }`}
-          >
-            {tab.label}
-          </button>
+      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {featured.map((service) => (
+          <ServiceCard key={service.slug} service={service} learnMoreLabel="Learn More" />
         ))}
       </div>
 
-      <motion.div
-        key={active}
-        variants={staggerContainer()}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: '-80px' }}
-        className="mt-12 grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1"
-      >
-        {visible.map((service) => (
-          <motion.div key={service.slug} variants={fadeUp}>
-            <ServiceCard service={service} learnMoreLabel="Learn More" />
-          </motion.div>
-        ))}
-      </motion.div>
-
-      <div className="mt-12 text-center">
+      <div className="mt-10 flex justify-center">
         <Link
           href="/services"
-          className="rounded-lg border-[1.5px] border-border-glow px-8 py-3.5 font-display text-base font-semibold text-primary transition-colors hover:bg-primary-muted"
+          className="rounded-full border border-border-glass bg-glass px-6 py-2.5 text-sm font-medium text-text-primary backdrop-blur-glass transition-colors hover:border-primary/50 hover:text-primary"
         >
           View All Services
         </Link>
