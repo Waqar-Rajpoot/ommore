@@ -1,17 +1,42 @@
 'use client';
 
-import { Building2, ShoppingCart, Megaphone, Landmark, FileText, Store, ArrowRight } from 'lucide-react';
+import {
+  Building2,
+  Briefcase,
+  FileText,
+  Landmark,
+  Code2,
+  Layout,
+  ShoppingBag,
+  Code,
+  Cloud,
+  Search,
+  Target,
+  Image as ImageIcon,
+  PlaySquare,
+  Palette,
+  ArrowRight,
+  Clock,
+} from 'lucide-react';
 import Link from 'next/link';
 import GlassCard from '@/components/ui/GlassCard';
 import type { ServiceSummary } from '@/data/services-data';
 
 const ICONS = {
   Building2,
-  ShoppingCart,
-  Megaphone,
-  Landmark,
+  Briefcase,
   FileText,
-  Store,
+  Landmark,
+  Code2,
+  Layout,
+  ShoppingBag,
+  Code,
+  Cloud,
+  Search,
+  Target,
+  Image: ImageIcon,
+  PlaySquare,
+  Palette,
 };
 
 export default function ServiceCard({
@@ -25,6 +50,12 @@ export default function ServiceCard({
 
   return (
     <GlassCard className="relative flex min-h-[240px] flex-col overflow-hidden">
+      {service.comingSoon && (
+        <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-text-muted/15 px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.06em] text-text-muted">
+          <Clock className="h-3 w-3" />
+          Soon
+        </span>
+      )}
       <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-muted text-primary">
         <Icon className="h-6 w-6 text-primary" />
       </div>

@@ -1,6 +1,4 @@
-// src/data/blog-posts.ts
-// Static blog data. Swap this out for a CMS/DB call later without touching
-// any of the page/component code — every consumer only relies on this shape.
+import type { ServiceCategory } from "./services-data";
 
 export type BlogBlock =
   | { type: "paragraph"; text: string }
@@ -19,7 +17,8 @@ export type BlogPost = {
   slug: string;
   title: string;
   excerpt: string;
-  category: string;
+  category: ServiceCategory;
+  relatedService: string;
   tags: string[];
   coverImage: string;
   date: string; // ISO date
@@ -45,63 +44,160 @@ const authors = {
     role: "Frontend Engineer",
     avatar: "https://i.pravatar.cc/150?img=51",
   },
+  hina: {
+    name: "Hina Malik",
+    role: "Marketing Lead",
+    avatar: "https://i.pravatar.cc/150?img=45",
+  },
 } satisfies Record<string, BlogAuthor>;
 
 export const blogPosts: BlogPost[] = [
+  // ── Business ────────────────────────────────────────────────
   {
-    slug: "design-systems-before-features",
-    title:
-      "Why Your Next Product Needs a Design System Before It Needs More Features",
+    slug: "uk-company-registration-guide",
+    title: "UK LTD Registration for Non-Residents: What Actually Trips People Up",
     excerpt:
-      "Teams keep shipping features on top of shaky foundations. Here's why we make every client invest in a design system first — and what it saves them six months later.",
-    category: "Product Design",
-    tags: ["Design Systems", "UI/UX", "Product Strategy"],
-    coverImage: "https://picsum.photos/seed/design-systems-before-features/1600/900",
-    date: "2026-06-18",
-    readTime: "7 min read",
-    featured: true,
-    author: authors.ayesha,
+      "Registering a UK LTD from abroad is simpler than most guides make it sound — until you hit the registered-office and director-verification steps. Here's what to get right the first time.",
+    category: "Business",
+    relatedService: "uk-company",
+    tags: ["UK Company", "Company Formation", "Compliance"],
+    coverImage: "https://picsum.photos/seed/uk-company-registration-guide/1600/900",
+    date: "2026-06-20",
+    readTime: "6 min read",
+    featured: false,
+    author: authors.waqar,
     content: [
       {
         type: "paragraph",
-        text: "Almost every client comes to us with a feature list, not a foundation. That's natural — features are what stakeholders can see and approve. But we've learned, sometimes the hard way, that a product built feature-first accumulates a debt that eventually costs far more than the time it saved.",
+        text: "Most non-resident founders assume UK company registration will be the hard part. In practice, Companies House filing itself is fast — it's the decisions around registered office and share structure made before filing that cause the most rework later.",
       },
-      { type: "heading", text: "The feature trap" },
-      {
-        type: "paragraph",
-        text: "When every screen is designed in isolation, small inconsistencies creep in: three shades of the same blue, five different button paddings, two competing definitions of 'primary action'. None of it looks wrong in a single screenshot. It looks wrong the moment a user moves between screens and the product stops feeling like one coherent thing.",
-      },
-      {
-        type: "quote",
-        text: "A design system isn't a deliverable you hand over once. It's the shared vocabulary your whole team keeps speaking long after the project ends.",
-        cite: "Ayesha Khan, Product Designer",
-      },
-      { type: "heading", text: "What a real design system buys you" },
+      { type: "heading", text: "Where founders get stuck" },
       {
         type: "list",
         items: [
-          "New screens ship in days instead of weeks, because the components already exist and already match brand.",
-          "Design and engineering stop relitigating spacing and color in every sprint review.",
-          "Accessibility gets solved once, at the component level, instead of being patched screen by screen.",
-          "Onboarding a new designer or developer takes hours, not months, because the rules are written down.",
+          "Using a home address as the registered office, then needing to change it later once it becomes public record.",
+          "Choosing a share structure without thinking through future investors or co-founders.",
+          "Missing the first confirmation statement deadline because nobody set a reminder.",
         ],
       },
       {
         type: "paragraph",
-        text: "None of this shows up on a feature roadmap, which is exactly why it gets skipped. Our job is to make the invisible cost visible early, before the fifth inconsistent button pattern makes it into production.",
+        text: "None of this is complicated once it's flagged early. It only becomes a problem when it's discovered after the fact.",
       },
     ],
   },
   {
+    slug: "us-llc-non-resident-founders",
+    title: "US LLC Formation for Non-Residents: Delaware vs. Wyoming, and What Comes After",
+    excerpt:
+      "Picking a state is the easy 10% of forming a US LLC as a non-resident. The EIN and banking steps are where most DIY attempts stall for months.",
+    category: "Business",
+    relatedService: "us-llc",
+    tags: ["US LLC", "Company Formation", "Non-Resident"],
+    coverImage: "https://picsum.photos/seed/us-llc-non-resident-founders/1600/900",
+    date: "2026-06-05",
+    readTime: "7 min read",
+    featured: true,
+    author: authors.waqar,
+    content: [
+      {
+        type: "paragraph",
+        text: "Delaware and Wyoming both come up constantly in non-resident founder forums, usually with strong opinions and little context. The honest answer is that the right state depends on what you're optimizing for — investor familiarity, ongoing fees, or privacy.",
+      },
+      { type: "heading", text: "Where DIY attempts usually stall" },
+      {
+        type: "list",
+        items: [
+          "Filing the LLC is quick — getting an EIN without a US Social Security Number takes longer and has its own paperwork.",
+          "Most traditional banks won't open an account remotely, which is where founders get stuck for months.",
+          "First-year compliance deadlines aren't obvious from the state filing confirmation alone.",
+        ],
+      },
+      {
+        type: "quote",
+        text: "The filing takes days. Getting an EIN and a working bank account is the part that actually determines your timeline.",
+        cite: "Waqar Rajpoot, Founder & Lead Engineer",
+      },
+    ],
+  },
+  {
+    slug: "annual-tax-filing-compliance",
+    title: "The Annual Filings That Quietly Put Non-Resident Companies at Risk",
+    excerpt:
+      "Missing an annual report or tax filing rarely causes an immediate problem — until it does, at the worst possible time. Here's what to track from day one.",
+    category: "Business",
+    relatedService: "tax",
+    tags: ["Tax", "Compliance", "Annual Filing"],
+    coverImage: "https://picsum.photos/seed/annual-tax-filing-compliance/1600/900",
+    date: "2026-05-15",
+    readTime: "5 min read",
+    featured: false,
+    author: authors.waqar,
+    content: [
+      {
+        type: "paragraph",
+        text: "Companies rarely fail because of one dramatic mistake. More often, it's a missed annual report or an IRS filing deadline that goes unnoticed for a year, then surfaces as a much bigger problem during a bank review or an investor's due diligence.",
+      },
+      { type: "heading", text: "What to track from formation onward" },
+      {
+        type: "list",
+        items: [
+          "Your state's annual report deadline, which is separate from your federal tax filing deadline.",
+          "Registered agent renewal — letting this lapse can put your company out of good standing.",
+          "Which filings apply to your specific entity type; requirements differ between an LLC and a corporation.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "None of this requires deep tax expertise to stay on top of. It requires a calendar and someone accountable for checking it.",
+      },
+    ],
+  },
+  {
+    slug: "banking-for-non-resident-founders",
+    title: "Wise, Payoneer, or a Physical US Bank Account — What Non-Resident Founders Actually Need",
+    excerpt:
+      "Most founders don't need a physical US bank account on day one. Here's how to sequence banking so you're not blocked from collecting payments while you sort it out.",
+    category: "Business",
+    relatedService: "banking",
+    tags: ["Banking", "Payments", "Non-Resident"],
+    coverImage: "https://picsum.photos/seed/banking-for-non-resident-founders/1600/900",
+    date: "2026-04-28",
+    readTime: "6 min read",
+    featured: false,
+    author: authors.waqar,
+    content: [
+      {
+        type: "paragraph",
+        text: "The instinct is to chase a physical US bank account first, since it feels like the 'real' step. In practice, Wise and Payoneer get most non-resident founders collecting payments faster, with a physical account added later once volume justifies it.",
+      },
+      { type: "heading", text: "A workable sequence" },
+      {
+        type: "list",
+        items: [
+          "Set up Wise or Payoneer first — verification is faster and neither requires a US address.",
+          "Connect Stripe once you have a business entity and EIN in place, so you can accept card payments directly.",
+          "Add a physical US bank account only once you have a concrete reason — a specific vendor or investor requirement.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Doing it in this order means you're never blocked from collecting revenue while paperwork for a physical account works through underwriting.",
+      },
+    ],
+  },
+
+  // ── Technology ──────────────────────────────────────────────
+  {
     slug: "server-components-explained",
-    title:
-      "Server Components, Explained the Way We Wish Someone Had Explained Them to Us",
+    title: "Server Components, Explained the Way We Wish Someone Had Explained Them to Us",
     excerpt:
       "No hand-waving, no hype. Just what React Server Components actually change about how you fetch data, ship JavaScript, and structure a Next.js app.",
-    category: "Engineering",
-    tags: ["Next.js", "React", "Architecture"],
+    category: "Technology",
+    relatedService: "web-development",
+    tags: ["Web Development", "Next.js", "React"],
     coverImage: "https://picsum.photos/seed/server-components-explained/1600/900",
-    date: "2026-05-02",
+    date: "2026-06-10",
     readTime: "9 min read",
     featured: true,
     author: authors.daniyal,
@@ -113,183 +209,297 @@ export const blogPosts: BlogPost[] = [
       { type: "heading", text: "The one-sentence version" },
       {
         type: "paragraph",
-        text: "A Server Component runs only on the server, renders to a lightweight description of the UI, and never ships its own code to the browser. A Client Component runs on the server for the first paint and then again in the browser, so its code does ship, and it's the only place hooks like useState work.",
+        text: "A Server Component runs only on the server and never ships its own code to the browser. A Client Component runs on the server for the first paint and then again in the browser, so its code does ship — it's the only place hooks like useState work.",
       },
       { type: "heading", text: "What actually changes in practice" },
       {
         type: "list",
         items: [
           "Data fetching moves next to the component that needs it, with a plain async function — no useEffect, no loading flicker on first load.",
-          "Your JavaScript bundle only includes the components that truly need interactivity, which for most pages is a small fraction of the tree.",
-          "You draw a real boundary between 'this needs a browser' and 'this is just rendering', and that boundary becomes a design decision, not an afterthought.",
+          "Your JavaScript bundle only includes the components that truly need interactivity.",
+          "You draw a real boundary between 'this needs a browser' and 'this is just rendering'.",
         ],
-      },
-      {
-        type: "quote",
-        text: "The mental model shift isn't 'server vs. client', it's 'does this piece of UI need a browser at all, or just data'.",
-        cite: "Daniyal Ahmed, Frontend Engineer",
-      },
-      {
-        type: "paragraph",
-        text: "In practice, we push interactivity as far down the tree as possible — a single 'like' button becomes a small client island inside an otherwise fully server-rendered card. Everything upstream of it stays server-only, which is most of the page.",
       },
     ],
   },
   {
-    slug: "real-cost-of-slow-websites",
-    title: "The Real Cost of a Slow Website (And How We Cut Load Times by 68%)",
+    slug: "wordpress-without-the-plugin-bloat",
+    title: "Building WordPress Sites That Don't Slow Down After Launch",
     excerpt:
-      "A slow site isn't just an engineering embarrassment — it's a revenue problem. Here's the audit process we used to take a client from a 4.8s load time to 1.5s.",
-    category: "Performance",
-    tags: ["Performance", "Core Web Vitals", "Case Study"],
-    coverImage: "https://picsum.photos/seed/real-cost-of-slow-websites/1600/900",
-    date: "2026-04-14",
+      "Most slow WordPress sites aren't slow because of WordPress — they're slow because of forty plugins nobody audited. Here's our setup checklist.",
+    category: "Technology",
+    relatedService: "wordpress",
+    tags: ["WordPress", "Performance", "CMS"],
+    coverImage: "https://picsum.photos/seed/wordpress-without-plugin-bloat/1600/900",
+    date: "2026-05-22",
     readTime: "6 min read",
-    featured: true,
+    featured: false,
     author: authors.daniyal,
     content: [
       {
         type: "paragraph",
-        text: "A client came to us convinced their conversion problem was a copywriting problem. It wasn't. Their landing page took 4.8 seconds to become interactive on an average mobile connection, and a third of visitors never waited that long.",
+        text: "WordPress gets blamed for slow sites more often than it deserves. In most audits we run, the real cause is plugin sprawl — five plugins doing overlapping jobs, none of them removed when a new one was added.",
       },
-      { type: "heading", text: "Where the time was actually going" },
+      { type: "heading", text: "What we do differently on setup" },
       {
         type: "list",
         items: [
-          "An unoptimized hero video that loaded before any text was visible.",
-          "Three separate analytics and chat scripts, all render-blocking, all loaded synchronously.",
-          "Images served at their original resolution and shrunk down with CSS instead of being resized at the source.",
-          "A font loading strategy that caused two visible layout shifts on every visit.",
+          "Start with a minimal plugin list and add only what a specific requirement justifies.",
+          "Choose a lightweight, well-maintained theme over a heavy page-builder theme by default.",
+          "Set up caching and image optimization before content goes in, not after launch.",
         ],
       },
-      { type: "heading", text: "What we changed" },
       {
         type: "paragraph",
-        text: "We moved the video behind a poster image with lazy playback, deferred every third-party script until after first interaction, converted images to responsive AVIF with correct sizing, and switched to font-display: swap with matched fallback metrics.",
-      },
-      {
-        type: "quote",
-        text: "None of these fixes were exotic. The hard part was having the discipline to measure each one instead of guessing.",
-        cite: "Daniyal Ahmed, Frontend Engineer",
-      },
-      {
-        type: "paragraph",
-        text: "Load time dropped from 4.8s to 1.5s. Within three weeks, mobile conversion rate was up 22% — with the exact same copy the client had originally wanted to rewrite.",
+        text: "A WordPress site set up this way stays fast a year later, not just on launch day.",
       },
     ],
   },
   {
-    slug: "figma-to-production-handoff",
-    title: "From Figma to Production: Our Handoff Process at Ommore",
+    slug: "shopify-store-setup-checklist",
+    title: "The Shopify Setup Checklist We Run on Every New Store",
     excerpt:
-      "Handoff is where good designs quietly die. This is the exact checklist we run between 'design approved' and 'first pull request'.",
-    category: "Workflow",
-    tags: ["Design Ops", "Collaboration", "Figma"],
-    coverImage: "https://picsum.photos/seed/figma-to-production-handoff/1600/900",
-    date: "2026-03-09",
+      "Before a single product goes live, there's a short list of settings that determine whether checkout, shipping, and tax actually work correctly on day one.",
+    category: "Technology",
+    relatedService: "shopify",
+    tags: ["Shopify", "E-Commerce", "Setup"],
+    coverImage: "https://picsum.photos/seed/shopify-store-setup-checklist/1600/900",
+    date: "2026-05-08",
     readTime: "5 min read",
+    featured: false,
+    author: authors.daniyal,
+    content: [
+      {
+        type: "paragraph",
+        text: "New Shopify stores usually work in a demo. Whether they work correctly with real tax rates, real shipping zones, and a real payment gateway is a different question — one that only shows up once actual customers try to check out.",
+      },
+      { type: "heading", text: "What we confirm before launch" },
+      {
+        type: "list",
+        items: [
+          "Tax settings match the jurisdictions the store actually sells into.",
+          "Shipping rates are tested against real product weights, not the default flat rate.",
+          "Payment gateway is fully verified, not just connected — a test transaction goes through end to end.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "when-to-build-custom-software",
+    title: "When an Off-the-Shelf Tool Stops Being Enough",
+    excerpt:
+      "Most businesses don't need custom software. Here's the honest checklist for when a spreadsheet or SaaS tool has actually become the bottleneck.",
+    category: "Technology",
+    relatedService: "programming",
+    tags: ["Programming", "Custom Software", "Automation"],
+    coverImage: "https://picsum.photos/seed/when-to-build-custom-software/1600/900",
+    date: "2026-04-20",
+    readTime: "6 min read",
+    featured: false,
+    author: authors.daniyal,
+    content: [
+      {
+        type: "paragraph",
+        text: "Every custom software conversation starts the same way: someone is manually copying data between two tools, twice a week, and has been for a year. That's usually the actual signal, more than any grand product vision.",
+      },
+      { type: "heading", text: "Signs it's worth building" },
+      {
+        type: "list",
+        items: [
+          "The same manual task happens on a fixed schedule and takes real hours each time.",
+          "No existing tool combination covers the workflow without a workaround.",
+          "The cost of the workaround, in hours per month, already exceeds what a small build would cost.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "what-a-saas-mvp-actually-needs",
+    title: "What a SaaS MVP Actually Needs (and What Can Wait)",
+    excerpt:
+      "Founders over-scope their first SaaS build constantly. Here's the honest cut list for what ships in v1 versus what waits for real users to ask for it.",
+    category: "Technology",
+    relatedService: "saas",
+    tags: ["SaaS", "Product Strategy", "MVP"],
+    coverImage: "https://picsum.photos/seed/what-a-saas-mvp-actually-needs/1600/900",
+    date: "2026-03-30",
+    readTime: "7 min read",
+    featured: false,
+    author: authors.waqar,
+    content: [
+      {
+        type: "paragraph",
+        text: "Nearly every first SaaS spec we see includes team roles, an admin dashboard, and three subscription tiers before a single user has confirmed the core problem is worth solving.",
+      },
+      { type: "heading", text: "What actually belongs in v1" },
+      {
+        type: "list",
+        items: [
+          "The single workflow that solves the core problem, done well, for one type of user.",
+          "Just enough billing to charge one plan — multiple tiers can wait for real pricing data.",
+          "Enough onboarding that a first-time user doesn't need a support ticket to get started.",
+        ],
+      },
+      {
+        type: "quote",
+        text: "The feature list that matters is the one your first ten users actually ask for, not the one you predicted in week one.",
+        cite: "Waqar Rajpoot, Founder & Lead Engineer",
+      },
+    ],
+  },
+
+  // ── Marketing ───────────────────────────────────────────────
+  {
+    slug: "technical-seo-audit-checklist",
+    title: "The Technical SEO Issues That Quietly Cap Your Organic Traffic",
+    excerpt:
+      "Great content can't rank on top of a broken technical foundation. Here's what we check first in every SEO audit, before touching a single page of copy.",
+    category: "Marketing",
+    relatedService: "seo",
+    tags: ["SEO", "Technical Audit", "Organic Traffic"],
+    coverImage: "https://picsum.photos/seed/technical-seo-audit-checklist/1600/900",
+    date: "2026-06-14",
+    readTime: "7 min read",
+    featured: true,
+    author: authors.hina,
+    content: [
+      {
+        type: "paragraph",
+        text: "We've seen well-written content stall in rankings for months because of a technical issue nobody had checked — duplicate pages competing against each other, or a robots.txt file accidentally blocking key sections.",
+      },
+      { type: "heading", text: "What we check before touching content" },
+      {
+        type: "list",
+        items: [
+          "Whether important pages are actually indexable, not accidentally blocked or noindexed.",
+          "Duplicate content across parameterized URLs or staging subdomains.",
+          "Core Web Vitals scores, since page experience is a ranking factor on its own.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Fixing the technical layer first means every piece of content written afterward actually has a chance to rank.",
+      },
+    ],
+  },
+  {
+    slug: "google-ads-budget-mistakes",
+    title: "The Google Ads Budget Mistakes That Look Like Success on the Surface",
+    excerpt:
+      "High click-through rate and rising spend can look like a healthy campaign while quietly bleeding budget on the wrong keywords. Here's what to check instead.",
+    category: "Marketing",
+    relatedService: "google-ads",
+    tags: ["Google Ads", "PPC", "Campaign Strategy"],
+    coverImage: "https://picsum.photos/seed/google-ads-budget-mistakes/1600/900",
+    date: "2026-05-30",
+    readTime: "6 min read",
+    featured: false,
+    author: authors.hina,
+    content: [
+      {
+        type: "paragraph",
+        text: "A campaign with a strong click-through rate can still be losing money quietly, if those clicks are coming from broad-match keywords with no buying intent behind them.",
+      },
+      { type: "heading", text: "What actually matters more than CTR" },
+      {
+        type: "list",
+        items: [
+          "Cost per acquisition against your actual margin, not just cost per click.",
+          "Search term reports, reviewed weekly, to catch irrelevant queries burning budget.",
+          "Conversion tracking that's actually verified, not just assumed to be working.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "pinterest-for-product-brands",
+    title: "Why Pinterest Still Works for Product Brands Nobody Else Is Using It For",
+    excerpt:
+      "Pinterest drives long-tail discovery traffic other platforms miss entirely — if your pin strategy matches how people actually search there.",
+    category: "Marketing",
+    relatedService: "pinterest",
+    tags: ["Pinterest", "Organic Growth", "Product Marketing"],
+    coverImage: "https://picsum.photos/seed/pinterest-for-product-brands/1600/900",
+    date: "2026-05-01",
+    readTime: "5 min read",
+    featured: false,
+    author: authors.hina,
+    content: [
+      {
+        type: "paragraph",
+        text: "Most brands treat Pinterest as an afterthought — a place to repost Instagram content. Pins that are built for how people actually search Pinterest behave completely differently, and drive traffic that compounds over months, not days.",
+      },
+      { type: "heading", text: "What we set up differently" },
+      {
+        type: "list",
+        items: [
+          "Boards organized around search terms customers actually use, not internal product categories.",
+          "Pin descriptions written as search copy, not captions.",
+          "A consistent posting cadence, since Pinterest rewards accounts that publish regularly over time.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "youtube-as-a-growth-channel",
+    title: "Treating YouTube as a Growth Channel, Not Just a Video Host",
+    excerpt:
+      "Most brands upload videos and stop there. The brands that actually grow on YouTube treat it as a retargeting and search channel from day one.",
+    category: "Marketing",
+    relatedService: "youtube",
+    tags: ["YouTube", "Video Marketing", "Retargeting"],
+    coverImage: "https://picsum.photos/seed/youtube-as-a-growth-channel/1600/900",
+    date: "2026-04-08",
+    readTime: "6 min read",
+    featured: false,
+    author: authors.hina,
+    content: [
+      {
+        type: "paragraph",
+        text: "YouTube is the second-largest search engine, but most brand channels are treated like a folder for finished ads instead of a discovery channel with its own audience behavior.",
+      },
+      { type: "heading", text: "What changes the outcome" },
+      {
+        type: "list",
+        items: [
+          "Titles and thumbnails written for search intent, not just brand aesthetics.",
+          "Video ad campaigns layered on top of organic content, not run in isolation.",
+          "Retargeting audiences built from video viewers, since watch time is a strong intent signal.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "brand-identity-that-survives-scrutiny",
+    title: "Building a Brand Identity That Survives Investor and Vendor Scrutiny",
+    excerpt:
+      "A logo that looks good in a pitch deck can fall apart the moment it meets a real packaging vendor or a second designer. Here's how we build systems that hold up.",
+    category: "Marketing",
+    relatedService: "branding",
+    tags: ["Branding", "Visual Identity", "Design Systems"],
+    coverImage: "https://picsum.photos/seed/brand-identity-that-survives-scrutiny/1600/900",
+    date: "2026-06-01",
+    readTime: "6 min read",
+    featured: false,
     author: authors.ayesha,
     content: [
       {
         type: "paragraph",
-        text: "Most handoff problems aren't technical — they're conversations that never happened. A spacing value that only exists in the designer's head, an edge case nobody designed for, a hover state that was assumed rather than specified.",
+        text: "Early-stage brand work often produces a pretty deck that falls apart the moment it meets a real packaging vendor or a second designer. The client needs something usable, not just presentable.",
       },
-      { type: "heading", text: "Our checklist before a file leaves design" },
+      { type: "heading", text: "What a durable identity system includes" },
       {
         type: "list",
         items: [
-          "Every component has its empty, loading, and error states designed — not just the happy path.",
-          "Spacing and type use tokens from the shared library, never one-off pixel values.",
-          "Interactive states (hover, focus, active, disabled) are specified for anything clickable.",
-          "Content is written in real sentences, at realistic lengths — no 'Lorem ipsum' hiding a truncation bug.",
+          "Primary and secondary logo lockups that work at every size, not just the hero placement.",
+          "A defined color and type system documented well enough that a new designer can follow it without guessing.",
+          "Written tone-of-voice guidance, so copy stays consistent across every channel.",
         ],
       },
       {
         type: "quote",
-        text: "If a developer has to guess, we've already failed the handoff — no matter how polished the file looks.",
+        text: "A brand system isn't a deliverable you hand over once. It's the shared vocabulary your whole team keeps speaking long after the project ends.",
         cite: "Ayesha Khan, Product Designer",
-      },
-      {
-        type: "paragraph",
-        text: "The last step is always a 30-minute walkthrough, designer and engineer in the same call, going through the file screen by screen. It feels slow. It's the single highest-leverage half hour in the whole project.",
-      },
-    ],
-  },
-  {
-    slug: "ai-pair-programming-2026",
-    title: "AI Pair Programming: What Actually Changed for Our Team This Year",
-    excerpt:
-      "Less hype, more honesty: where AI coding tools genuinely sped us up this year, and the three places we still don't trust them unsupervised.",
-    category: "Engineering",
-    tags: ["AI", "Developer Tools", "Productivity"],
-    coverImage: "https://picsum.photos/seed/ai-pair-programming-2026/1600/900",
-    date: "2026-02-21",
-    readTime: "8 min read",
-    author: authors.waqar,
-    content: [
-      {
-        type: "paragraph",
-        text: "A year ago we treated AI coding assistants as a novelty for autocomplete. That's no longer true, but it's also not the whole story people tell at conferences. Here's the plain version.",
-      },
-      { type: "heading", text: "Where it genuinely helped" },
-      {
-        type: "list",
-        items: [
-          "Scaffolding boilerplate — API routes, form validation, test setup — dropped from hours to minutes.",
-          "Reading unfamiliar code got dramatically faster; asking 'what does this function actually do' beats tracing call stacks manually.",
-          "Refactors that touch dozens of files became something one engineer could do safely in an afternoon.",
-        ],
-      },
-      { type: "heading", text: "Where we still don't trust it alone" },
-      {
-        type: "list",
-        items: [
-          "Architecture decisions with long-term consequences — the tools optimize for the code in front of them, not the system in five years.",
-          "Anything touching authentication, payments, or data deletion gets a human review, every time, no exceptions.",
-          "Performance-critical code, where the 'obviously correct' suggestion is sometimes the slow one.",
-        ],
-      },
-      {
-        type: "quote",
-        text: "The tools changed how fast we write code. They didn't change how much we're responsible for it.",
-        cite: "Waqar Rajpoot, Founder & Lead Engineer",
-      },
-    ],
-  },
-  {
-    slug: "client-onboarding-questions",
-    title: "Client Onboarding: The Questions We Ask Before Writing a Line of Code",
-    excerpt:
-      "The projects that go smoothly aren't luck — they're the ones where we asked the uncomfortable questions in week one instead of week ten.",
-    category: "Process",
-    tags: ["Client Work", "Discovery", "Strategy"],
-    coverImage: "https://picsum.photos/seed/client-onboarding-questions/1600/900",
-    date: "2026-01-11",
-    readTime: "6 min read",
-    author: authors.waqar,
-    content: [
-      {
-        type: "paragraph",
-        text: "Every project that went badly in our first two years had the same root cause: we started building before we'd agreed, in writing, what 'done' actually meant. Now discovery is a non-negotiable first step, not a formality before the real work starts.",
-      },
-      { type: "heading", text: "The questions we always ask" },
-      {
-        type: "list",
-        items: [
-          "Who is the one person with final sign-off authority — not the committee, the individual?",
-          "What does this product need to do on day one that it doesn't need to do on day ninety?",
-          "What's the actual budget for maintenance after launch, not just for building it?",
-          "If we could only fix one metric in the first quarter, which one matters most?",
-        ],
-      },
-      {
-        type: "quote",
-        text: "Clients don't remember how fast we built something. They remember whether it solved the problem they actually had.",
-        cite: "Waqar Rajpoot, Founder & Lead Engineer",
-      },
-      {
-        type: "paragraph",
-        text: "None of these questions are clever. They're just uncomfortable enough that teams skip them under deadline pressure — which is exactly why asking them early is worth protecting on every project we take on.",
       },
     ],
   },
@@ -301,24 +511,45 @@ export function getAllPosts(): BlogPost[] {
   );
 }
 
+// Kept for any existing single-post consumers. Prefer getFeaturedPosts()
+// for anything showing more than one featured post.
 export function getFeaturedPost(): BlogPost {
   return blogPosts.find((p) => p.featured) ?? blogPosts[0];
+}
+
+export function getFeaturedPosts(limit = 3): BlogPost[] {
+  const flagged = blogPosts.filter((p) => p.featured);
+  const source = flagged.length > 0 ? flagged : blogPosts;
+  return source.slice(0, limit);
 }
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts.find((p) => p.slug === slug);
 }
 
+// Articles supporting a specific service (e.g. for a "Learn more" section on
+// a service detail page). Matches BlogPost.relatedService against a SERVICES
+// slug — mirrors getProjectsByService in portfolio-data.ts.
+export function getPostsByService(serviceSlug: string): BlogPost[] {
+  return blogPosts.filter((p) => p.relatedService === serviceSlug);
+}
+
 export function getRelatedPosts(slug: string, limit = 3): BlogPost[] {
   const current = getPostBySlug(slug);
   if (!current) return [];
+  const sameService = blogPosts.filter(
+    (p) => p.slug !== slug && p.relatedService === current.relatedService
+  );
   const sameCategory = blogPosts.filter(
-    (p) => p.slug !== slug && p.category === current.category
+    (p) =>
+      p.slug !== slug &&
+      p.relatedService !== current.relatedService &&
+      p.category === current.category
   );
   const rest = blogPosts.filter(
     (p) => p.slug !== slug && p.category !== current.category
   );
-  return [...sameCategory, ...rest].slice(0, limit);
+  return [...sameService, ...sameCategory, ...rest].slice(0, limit);
 }
 
 export function formatDate(iso: string): string {

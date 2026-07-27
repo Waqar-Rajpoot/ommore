@@ -1,17 +1,4 @@
-// src/data/portfolio-data.ts
-//
-// PLACEHOLDER DATA — same convention as testimonials.ts / blog-posts.ts.
-// Client names, metrics, and outcomes below are fabricated examples for
-// layout/QA purposes only and must be replaced with real client-approved
-// case studies before launch. Swap for a CMS later without touching
-// component code — every component reads from the helpers at the bottom.
-
-export type ProjectCategory =
-  | 'Web Development'
-  | 'Branding & Identity'
-  | 'Business Services'
-  | 'Digital Marketing'
-  | 'Technology';
+export type ProjectCategory = 'Business' | 'Technology' | 'Marketing';
 
 export type ProjectMetric = { label: string; value: string };
 
@@ -25,6 +12,7 @@ export type Project = {
   slug: string;
   clientName: string;
   category: ProjectCategory;
+  relatedService: string;
   title: string;
   tagline: string;
   summary: string; // short card description
@@ -40,12 +28,12 @@ export type Project = {
   featured?: boolean;
 };
 
-// PLACEHOLDER_PROJECTS — replace with real, client-approved case studies.
 export const PLACEHOLDER_PROJECTS: Project[] = [
   {
     slug: 'northbridge-storefront-rebuild',
     clientName: 'Northbridge Goods',
-    category: 'Web Development',
+    category: 'Technology',
+    relatedService: 'web-development',
     title: 'A storefront rebuild that cut checkout drop-off in half',
     tagline: 'E-commerce replatform for a US-based DTC retailer',
     summary:
@@ -77,7 +65,8 @@ export const PLACEHOLDER_PROJECTS: Project[] = [
   {
     slug: 'petal-and-co-brand-system',
     clientName: 'Petal & Co.',
-    category: 'Branding & Identity',
+    category: 'Marketing',
+    relatedService: 'branding',
     title: 'A full brand system built for a seed-round pitch',
     tagline: 'Identity design for an early-stage consumer goods founder',
     summary:
@@ -108,6 +97,7 @@ export const PLACEHOLDER_PROJECTS: Project[] = [
     slug: 'kestrel-finance-risk-dashboard',
     clientName: 'Kestrel Finance',
     category: 'Technology',
+    relatedService: 'programming',
     title: 'An internal risk dashboard with zero compliance rework',
     tagline: 'Fintech engineering under real regulatory constraints',
     summary:
@@ -133,11 +123,13 @@ export const PLACEHOLDER_PROJECTS: Project[] = [
       authorName: 'Client contact name',
       authorRole: 'CTO',
     },
+    featured: true,
   },
   {
     slug: 'vertex-logistics-organic-growth',
     clientName: 'Vertex Logistics',
-    category: 'Digital Marketing',
+    category: 'Marketing',
+    relatedService: 'seo',
     title: 'Tripling organic traffic without touching the ad budget',
     tagline: 'SEO campaign for a B2B logistics provider',
     summary:
@@ -163,11 +155,13 @@ export const PLACEHOLDER_PROJECTS: Project[] = [
       authorName: 'Client contact name',
       authorRole: 'Marketing Director',
     },
+    featured: false,
   },
   {
     slug: 'summit-ventures-us-llc-formation',
     clientName: 'Summit Ventures',
-    category: 'Business Services',
+    category: 'Business',
+    relatedService: 'us-llc',
     title: 'US LLC formation and banking, handled remotely end to end',
     tagline: 'Company registration for a non-resident founder',
     summary:
@@ -192,37 +186,7 @@ export const PLACEHOLDER_PROJECTS: Project[] = [
       authorName: 'Client contact name',
       authorRole: 'Founder',
     },
-  },
-  {
-    slug: 'orbit-fitness-training-app',
-    clientName: 'Orbit Fitness',
-    category: 'Web Development',
-    title: 'A training app that held a 4.7 rating through three delays',
-    tagline: 'Mobile product engineering with honest timeline communication',
-    summary:
-      'Shipped a fitness training app with a wearable-device integration, maintaining client trust through one flagged delay and a strong post-launch rating.',
-    year: '2025',
-    liveUrl: 'https://example-orbitfitness.com',
-    servicesProvided: ['Mobile Development', 'Wearable Integration', 'QA'],
-    metrics: [
-      { label: 'App Store rating', value: '4.7 / 5' },
-      { label: 'Crash-free sessions', value: '99.8%' },
-      { label: 'Time to MVP', value: '11 weeks' },
-    ],
-    overview:
-      'Orbit Fitness needed a training app with live wearable-device sync, a feature that had derailed two prior development attempts elsewhere.',
-    challenge:
-      'The third-party wearable SDK had inconsistent documentation, and a naive integration risked missing the agreed launch date without warning.',
-    solution:
-      'When the integration proved more complex than scoped, we flagged the delay two weeks ahead of deadline with concrete options instead of missing the date silently, and prioritized crash-free stability over feature completeness for launch.',
-    results:
-      'The app launched two weeks later than originally scoped, with the client\u2019s full agreement, and has held a 4.7 App Store rating with 99.8% crash-free sessions since.',
-    testimonial: {
-      quote:
-        'The one delay we hit, they flagged two weeks in advance instead of at the deadline.',
-      authorName: 'Client contact name',
-      authorRole: 'Product Lead',
-    },
+    featured: false,
   },
 ];
 
@@ -242,14 +206,21 @@ export function getFeaturedProjects(): Project[] {
   return PLACEHOLDER_PROJECTS.filter((p) => p.featured);
 }
 
+export function getProjectsByService(serviceSlug: string): Project[] {
+  return PLACEHOLDER_PROJECTS.filter((p) => p.relatedService === serviceSlug);
+}
+
 export function getRelatedProjects(slug: string, limit = 3): Project[] {
   const current = getProjectBySlug(slug);
   if (!current) return [];
+  const sameService = PLACEHOLDER_PROJECTS.filter(
+    (p) => p.slug !== slug && p.relatedService === current.relatedService
+  );
   const sameCategory = PLACEHOLDER_PROJECTS.filter(
-    (p) => p.slug !== slug && p.category === current.category
+    (p) => p.slug !== slug && p.relatedService !== current.relatedService && p.category === current.category
   );
   const rest = PLACEHOLDER_PROJECTS.filter(
     (p) => p.slug !== slug && p.category !== current.category
   );
-  return [...sameCategory, ...rest].slice(0, limit);
+  return [...sameService, ...sameCategory, ...rest].slice(0, limit);
 }

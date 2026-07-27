@@ -13,6 +13,7 @@ export type Testimonial = {
   clientName: string;
   role: string;
   company: string;
+  featured: boolean;
   avatar: string;
   category: string;
   rating: number; // 1-5
@@ -34,6 +35,7 @@ export const testimonials: Testimonial[] = [
     clientName: "Sarah Bennett",
     role: "Head of E-Commerce",
     company: "Nimbus Retail",
+    featured: true,
     avatar: "https://i.pravatar.cc/150?img=5",
     category: "Web Development",
     rating: 5,
@@ -58,6 +60,7 @@ export const testimonials: Testimonial[] = [
     clientName: "Michael Osei",
     role: "CTO",
     company: "Kestrel Finance",
+    featured: true,
     avatar: "https://i.pravatar.cc/150?img=15",
     category: "Web Development",
     rating: 5,
@@ -82,6 +85,7 @@ export const testimonials: Testimonial[] = [
     clientName: "Laura Chen",
     role: "Founder",
     company: "Petal & Co.",
+    featured: true,
     avatar: "https://i.pravatar.cc/150?img=25",
     category: "Branding & Identity",
     rating: 5,
@@ -105,6 +109,7 @@ export const testimonials: Testimonial[] = [
     clientName: "Daniel Reyes",
     role: "Product Lead",
     company: "Orbit Fitness",
+    featured: false,
     avatar: "https://i.pravatar.cc/150?img=35",
     category: "Mobile App Development",
     rating: 4,
@@ -129,6 +134,7 @@ export const testimonials: Testimonial[] = [
     clientName: "Amara Diallo",
     role: "VP of Product",
     company: "Brightloop Health",
+    featured: true,
     avatar: "https://i.pravatar.cc/150?img=45",
     category: "UI/UX Design",
     rating: 5,
@@ -152,6 +158,7 @@ export const testimonials: Testimonial[] = [
     clientName: "Tom Whitfield",
     role: "Marketing Director",
     company: "Vertex Logistics",
+    featured: false,
     avatar: "https://i.pravatar.cc/150?img=55",
     category: "SEO & Digital Marketing",
     rating: 5,
@@ -176,6 +183,7 @@ export const testimonials: Testimonial[] = [
     clientName: "Priya Nandakumar",
     role: "Head of Engineering",
     company: "Solstice Learning",
+    featured: false,
     avatar: "https://i.pravatar.cc/150?img=60",
     category: "Mobile App Development",
     rating: 5,
