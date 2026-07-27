@@ -9,12 +9,12 @@ import {
   getRelatedTestimonials,
   getTestimonialBySlug,
 } from "@/data/testimonials";
-import ClientMark from "@/components/ui/ClientMark";
 import GlassCard from "@/components/ui/GlassCard";
 import { StarRating } from "@/components/testimonials/star-rating";
 import { VerifiedRow } from "@/components/testimonials/verified-row";
 import { TestimonialCard } from "@/components/testimonials/testimonial-card";
 import { ArrowLeftIcon, QuoteMarkIcon } from "@/components/testimonials/icons";
+import ClientMark from "@/components/portfolio/client-mark";
 
 type PageProps = {
   params: Promise<{ slug: string }>;

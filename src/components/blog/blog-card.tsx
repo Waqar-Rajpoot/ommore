@@ -10,8 +10,6 @@ export function BlogCard({ post }: { post: BlogPost }) {
       className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-glass shadow-glass backdrop-blur-glass backdrop-saturate-180 transition-all duration-300 hover:-translate-y-1 hover:border-[#7C6FF0]/40 hover:shadow-[0_0_0_1px_rgba(124,111,240,0.15),0_20px_40px_-20px_rgba(124,111,240,0.35)]"
     >
 
-
-      
       <div className="relative aspect-[16/10] w-full overflow-hidden">
         <Image
           src={post.coverImage}

@@ -1,8 +1,4 @@
-import type { BlogPostSummary } from '@/components/blog/blog-card';
-
-// SAMPLE DATA — placeholder posts until the backend (Ticket-030) and real
-// content (min. per PRD open question #5) exist.
-export const PLACEHOLDER_POSTS: BlogPostSummary[] = [
+export const PLACEHOLDER_POSTS= [
   {
     slug: 'how-to-open-us-llc-from-pakistan',
     title: 'How to Open a US LLC from Pakistan',

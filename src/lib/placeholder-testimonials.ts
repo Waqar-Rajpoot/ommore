@@ -1,9 +1,4 @@
-import type { Testimonial } from '@/components/testimonials/TestimonialCard';
-
-// SAMPLE DATA — not real client reviews. Your Security and Access Document
-// (Issue 3) flags unverifiable trust claims as a credibility risk. Replace
-// with real reviews (min 5–8, per PRD Technical Constraints) before launch.
-export const PLACEHOLDER_TESTIMONIALS: Testimonial[] = [
+export const PLACEHOLDER_TESTIMONIALS= [
   {
     name: 'Sample Client A',
     country: 'Saudi Arabia',
