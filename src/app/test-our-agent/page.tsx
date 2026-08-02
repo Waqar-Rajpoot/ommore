@@ -1,9 +1,14 @@
-import React from 'react'
+import ChatWidget from "@/components/chatboat/ChatWidget";
 
-const page = () => {
+export const metadata = {
+  title: "Chat with us | ommore",
+  description: "Ask our assistant about our services, process, and policies.",
+};
+
+export default function ChatPage() {
   return (
-    <div className='flex justify-center items-center h-screen animate-pulse text-2xl text-blue-100'>Comming soon...</div>
-  )
+    <main className="flex min-h-screen w-full items-center justify-center bg-[#080B0F] px-4 py-12">
+      <ChatWidget />
+    </main>
+  );
 }
-
-export default page

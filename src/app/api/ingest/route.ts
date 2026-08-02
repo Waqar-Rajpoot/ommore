@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
   try {
     const result = await ingestPdf(file, fileName);
     return NextResponse.json({ success: true, ...result });
-  } catch (err) {
+  } catch (err: any) {
     console.error("Ingestion failed:", err);
     return NextResponse.json(
       { error: "Ingestion failed", detail: err.message },
