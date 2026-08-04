@@ -20,6 +20,15 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  const MAX_QUESTION_LENGTH = 2000;
+
+  if (question.length > MAX_QUESTION_LENGTH) {
+    return NextResponse.json(
+      { error: `Question must be under ${MAX_QUESTION_LENGTH} characters` },
+      { status: 400 }
+    );
+  }
+
   const sessionId = body?.sessionId && body.sessionId.trim() ? body.sessionId : randomUUID();
 
   try {

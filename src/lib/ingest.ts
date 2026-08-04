@@ -46,6 +46,7 @@ export async function ingestPdf(
   const texts = chunks.map((c) => c.pageContent);
   const vectors = await embedTexts(texts);
 
+  // 4. Create Qdrant points
   const points = chunks.map((chunk, i) => ({
     id: randomUUID(),
     vector: vectors[i],
