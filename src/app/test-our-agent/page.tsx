@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function ChatPage() {
   return (
-    <main className="flex min-h-screen w-full items-center justify-center bg-[#080B0F] px-4 py-12">
+    <main className="flex min-h-screen w-full items-center justify-center bg-[#080B0F] px-4 py-12 my-16">
       <ChatWidget />
     </main>
   );
